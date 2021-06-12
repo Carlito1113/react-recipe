@@ -15,9 +15,7 @@ export default function ApiButton() {
 
   return (
     <div>
-      <button onClick={callApi}>
-        Call API
-      </button>
+      <button onClick={callApi}>Call API</button>
     </div>
   );
 }
