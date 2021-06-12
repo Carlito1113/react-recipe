@@ -12,11 +12,12 @@ export default function ApiButton() {
       console.error(error);
     }
   }
-  callApi();
 
   return (
     <div>
-      <button>Call API</button>
+      <button onClick={callApi}>
+        Call API
+      </button>
     </div>
   );
 }
