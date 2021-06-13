@@ -1,16 +1,22 @@
-import React from 'react'
+import React from 'react';
+import './Recipe.css';
 
 export default function Recipes({ recipes }) {
-
   return (
-    <div>
-      <h1>This is the Recipe Component</h1>
-      {recipes.map((recipe, recipeIdx) => {
-        console.log("inside loop")
-        return (
-          <div key={recipeIdx}>{recipe.title}</div>
-        )
-      })}
-    </div>
-  )
+    <div className="RecipesContainer">
+        {recipes.map((recipe, recipeIdx) => {
+          console.log('inside loop');
+          return (
+            <>
+              {recipeIdx <= 5 ? (
+                <>
+                  <img src={recipe.image} alt="recipe stuff" />
+                  <div key={recipeIdx}>{recipe.title}</div>
+                </>
+              ) : null}
+            </>
+          );
+        })}
+      </div>
+  );
 }
