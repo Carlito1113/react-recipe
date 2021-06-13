@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 
-export default function Form() {
+export default function Form({ setRecipe }) {
 
     const [input, setInput] = useState("")
 
@@ -16,7 +16,7 @@ export default function Form() {
             `https://api.spoonacular.com/recipes/random?tags=${input}&number=10&apiKey=${process.env.REACT_APP_API_KEY_SPOONACULAR}`
         );
 
-        console.log(response.data);
+        setRecipe(response.data.recipes);
     }
 
     return (
