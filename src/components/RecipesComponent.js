@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Recipe from './Recipe'
+import Form from './Form'
 
 export default function RecipesComponent() {
   const [recipes, setRecipe] = useState([]) 
   
+  useEffect(() => {
+    console.log("this is useeffect");
+    console.log(recipes);
+  }, [recipes])
+
   return (
     <div>
-      <Recipe /> 
+      <Form setRecipe={setRecipe}/>
+      <Recipe recipes={recipes} /> 
     </div>
   )
 }
