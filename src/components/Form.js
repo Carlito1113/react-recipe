@@ -20,7 +20,8 @@ export default function Form({ setRecipe }) {
 
     return (
         <form onSubmit={handleFormSubmit}>
-            <label>Cuisine Type</label>
+            <label>Search a cuisine and receive your random recipes!</label>
+            <br></br>
             <input onChange={handleInputChange} type="text" name="fname" />
             <button>submit</button>
         </form>

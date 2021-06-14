@@ -1,6 +1,21 @@
 .RecipesContainer {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+.RecipeCard {
+  background: white;
+  width: 270px;
+  height: 400px;
+  margin: 10px;
+  border-radius: 15px;
+}
+
+.CardImage {
+  background-color: cornflowerblue;
+  height: 150px;
+  margin-bottom: 15px;
+  background-size: cover;
+  border-radius: 15px 15px 15px 15px;
+  margin-top: 10px;
 }
