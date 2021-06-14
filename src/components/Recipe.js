@@ -9,10 +9,15 @@ export default function Recipes({ recipes }) {
           return (
             <>
               {recipeIdx <= 5 ? (
-                <>
-                  <img src={recipe.image} alt="recipe stuff" />
-                  <div key={recipeIdx}>{recipe.title}</div>
-                </>
+                <div className='RecipeCard'>
+                  <img className="CardImage" src={recipe.image} alt="recipe stuff" />
+                  <br></br>
+                  <div key={recipeIdx}><h3>{recipe.title}</h3></div>
+                  <br></br>
+                  <div><p>Ready in: {recipe.readyInMinutes} minutes</p></div>
+                  <div><p>Serves: {recipe.servings}</p></div>
+                  <div><a href={recipe.sourceUrl}> Link to Recipe </a></div>
+                </div>
               ) : null}
             </>
           );
