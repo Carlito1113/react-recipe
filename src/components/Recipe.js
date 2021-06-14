@@ -4,24 +4,26 @@ import './Recipe.css';
 export default function Recipes({ recipes }) {
   return (
     <div className="RecipesContainer">
-        {recipes.map((recipe, recipeIdx) => {
-          console.log('inside loop');
-          return (
-            <>
-              {recipeIdx <= 5 ? (
-                <div className='RecipeCard'>
-                  <img className="CardImage" src={recipe.image} alt="recipe stuff" />
-                  <br></br>
-                  <div key={recipeIdx}><h3>{recipe.title}</h3></div>
-                  <br></br>
-                  <div><p>Ready in: {recipe.readyInMinutes} minutes</p></div>
-                  <div><p>Serves: {recipe.servings}</p></div>
-                  <div><a href={recipe.sourceUrl}> Link to Recipe </a></div>
-                </div>
-              ) : null}
-            </>
-          );
-        })}
-      </div>
+      {recipes.map((recipe, recipeIdx) => {
+        console.log('inside loop');
+        return (
+          <>
+            {recipeIdx <= 5 ? (
+              <div key={recipeIdx} className="RecipeCard">
+                <img
+                  className="CardImage"
+                  src={recipe.image}
+                  alt="recipe stuff"
+                />
+                <h3>{recipe.title}</h3>
+                <p>Ready in: {recipe.readyInMinutes} minutes</p>
+                <p>Serves: {recipe.servings}</p>
+                  <a rel="noreferrer" target='_blank' href={recipe.sourceUrl}> Link to Recipe </a>
+              </div>
+            ) : null}
+          </>
+        );
+      })}
+    </div>
   );
 }
