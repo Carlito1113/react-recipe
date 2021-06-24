@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Recipe from './Recipe'
+import RecipeCard from './RecipeCard'
 import Form from './Form'
 
 export default function RecipesComponent() {
@@ -13,7 +13,7 @@ export default function RecipesComponent() {
   return (
     <div>
       <Form setRecipe={setRecipe}/>
-      <Recipe recipes={recipes} /> 
+      <RecipeCard recipes={recipes} /> 
     </div>
   )
 }
