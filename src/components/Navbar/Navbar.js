@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <nav className="NavbarItems">
-      <h1 className="navbar-logo">Recipe Book <i class="fas fa-drumstick-bite"></i></h1>
+      <h1 className="navbar-logo">Recipe Book <i className="fas fa-drumstick-bite"></i></h1>
       <div className="menu-icon" onClick={() => setClicked(!clicked)}>
         <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
       </div>

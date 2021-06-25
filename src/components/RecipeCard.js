@@ -37,6 +37,7 @@ export default function Recipes({ recipes }) {
                 <p>Serves: {recipe.servings}</p>
                 <a rel="noreferrer" target='_blank' href={recipe.sourceUrl}> Link to Recipe </a>
                 <button onClick={() => saveRecipe(recipe)}>SAVE recipe</button>
+
               </div>
             ) : null}
           </>
