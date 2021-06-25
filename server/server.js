@@ -9,9 +9,9 @@ const db = mongoose.connection
 db.on("error", err => console.error(error))
 db.once("open", () => console.log("connected to db"))
 
-app.get('/', (req, res) => {
-    res.send('Hellasdasdo!')
-})
+const recipebookRouter = require("./routes/Recipebook")
+
+app.use("/api/recipebook", recipebookRouter)
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
