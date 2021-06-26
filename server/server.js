@@ -27,7 +27,7 @@ app.listen(port, () => {
 // I used the rest client extension to test the requests
 ////// this is for testing purposes, real users information will be safely stored within database
 const bcrypt = require('bcrypt')
-const users = [{ name: "Mike", password: "Password" }]
+const users = [{ name: "mike", password: "password" }]
 
 app.get('/users', (req, res) => {
   res.json(users)
