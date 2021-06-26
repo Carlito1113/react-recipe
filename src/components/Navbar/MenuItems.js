@@ -14,14 +14,19 @@ export const MenuItems = [
   //   url: '#',
   //   cName: 'nav-links'
   // },
+  // {
+  //   title: 'Contact Us',
+  //   url: '#',
+  //   cName: 'nav-links',
+  // },
   {
-    title: 'Contact Us',
+    title: 'Login',
     url: '#',
-    cName: 'nav-links'
+    cName: 'nav-links',
   },
   {
     title: 'Sign up',
     url: '#',
-    cName: 'nav-links-mobile'
-  }
-]
+    cName: 'nav-links-mobile',
+  },
+];
