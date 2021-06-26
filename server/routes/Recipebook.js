@@ -5,8 +5,8 @@ const Recipebook = require("../models/recipe")
 // Getting all recipes
 router.get("/", async (req, res) => {
     try {
-        // const recipes = await Recipebook.find()
-        res.send("you've reached the backend")
+        const recipes = await Recipebook.find()
+        res.send(recipes)
     }
     catch (err) {
         res.status(500).json({ message: err.message })
