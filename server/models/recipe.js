@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 const recipebookSchema = new mongoose.Schema({
-    recipeName: {
+    title: {
         type: String,
         required: false
     },

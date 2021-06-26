@@ -1,19 +1,23 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const app = express();
-const port = 3001;
-require('dotenv').config();
+const express = require('express')
+const mongoose = require("mongoose")
+const app = express()
+const cors = require("cors")
+const port = 3001
+require("dotenv").config()
 
-mongoose.connect(process.env.MONGODB_URI || process.env.DATABASE_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-const db = mongoose.connection;
-db.on('error', err => console.error(error));
-db.once('open', () => console.log('connected to db'));
+app.use(
+    cors({
+        origin: "*"
+    })
+)
+app.use(express.json())
+
+mongoose.connect(process.env.MONGODB_URI || process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+const db = mongoose.connection
+db.on("error", err => console.error(err))
+db.once("open", () => console.log("connected to db"))
 
 const recipebookRouter = require("./routes/Recipebook")
-
 app.use("/api/recipebook", recipebookRouter)
 
 app.listen(port, () => {
