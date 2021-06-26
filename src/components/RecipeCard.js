@@ -16,7 +16,7 @@ export default function Recipes({ recipes }) {
     }
 
     await axios.post("http://localhost:3001/api/recipebook", newRecipe)
-    
+
   }
 
   return (
