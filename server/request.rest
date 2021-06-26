@@ -1,0 +1,21 @@
+GET http://localhost:3001/users
+
+###
+
+POST http://localhost:3001/users
+content-type: application/json
+
+{
+  "name": "mike",
+  "password": "password"
+}
+
+###
+
+POST http://localhost:3001/users/login
+content-type: application/json
+
+{
+  "name": "mike",
+  "password": "password"
+}
