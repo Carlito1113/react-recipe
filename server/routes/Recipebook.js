@@ -3,7 +3,7 @@ const router = express.Router()
 const Recipebook = require("../models/recipe")
 
 // Getting all recipes
-router.get("/", async (req, res) => {
+router.get("/food", async (req, res) => {
     try {
         const recipes = await Recipebook.find()
         res.send(recipes)

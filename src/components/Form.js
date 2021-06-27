@@ -1,9 +1,9 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import './Form.css';
+import axios from "axios";
+import React, { useState } from "react";
+import "./Form.css";
 
 export default function Form({ setRecipe }) {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
 
   function handleInputChange(event) {
     setInput(event.target.value);
