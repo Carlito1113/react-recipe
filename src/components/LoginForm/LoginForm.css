@@ -1,4 +1,4 @@
-.form-container {
+.form-container-login {
   margin: 100px auto;
   width: 500px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
@@ -12,7 +12,7 @@
   background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(17, 17, 17) 100%);
 }
 
-.close-btn {
+.close-btn-login {
   position: absolute;
   top: 2%;
   right: 3%;
@@ -22,7 +22,7 @@
   cursor: pointer;
 }
 
-.form {
+.form-login {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -35,7 +35,7 @@
   align-items: center;
 }
 
-.form h1 {
+.form-login h1 {
   font-size: 2rem;
   text-align: center;
   width: 80%;
@@ -43,25 +43,25 @@
   color: #fff;
 }
 
-.form-inputs {
+.form-inputs-login {
   margin-bottom: 0.5rem;
   width: 80%;
 }
 
-.form-inputs p {
+.form-inputs-login p {
   font-size: 0.8rem;
   margin-top: 0.5rem;
   color: #f00e0e;
 }
 
-.form-label {
+.form-label-login {
   display: inline-block;
   font-size: 0.8rem;
   margin-bottom: 6px;
   color: #fff;
 }
 
-.form-input {
+.form-input-login {
   display: block;
   padding-left: 10px;
   outline: none;
@@ -71,12 +71,12 @@
   border: none;
 }
 
-.form-input::placeholder {
+.form-input-login::placeholder {
   color: #595959;
   font-size: 12px;
 }
 
-.form-input-btn {
+.form-input-btn-login {
   width: 80%;
   height: 50px;
   margin-top: 10px;
@@ -88,13 +88,13 @@
   font-size: 1rem;
 }
 
-.form-input-btn:hover {
+.form-input-btn-login:hover {
   cursor: pointer;
   background: #00c9b8;
   transition: all 0.4s ease-out;
 }
 
-.form-input-login {
+.form-input-login2 {
   font-size: 0.8rem;
   margin-top: 10px;
   color: #fff;
@@ -102,7 +102,7 @@
   text-align: center;
 }
 
-.form-input-login a {
+.form-input-login2 a {
   text-decoration: none;
   color: #fcd200;
   font-weight: 600;

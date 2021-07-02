@@ -1,7 +1,7 @@
 import React from 'react';
 import useForm from './useForm';
 import validate from './validateInfo';
-import './Form.css';
+import './LoginForm.css';
 import { Link } from 'react-router-dom';
 
 const Form = ({ submitForm }) => {
@@ -11,18 +11,18 @@ const Form = ({ submitForm }) => {
   );
 
   return (
-    <div className="form-container">
-      <form className="form" onSubmit={handleSubmit}>
+    <div className="form-container-login">
+      <form className="form-login" onSubmit={handleSubmit}>
         <h1>Welcome Back!</h1>
-        <div className="form-inputs">
-          <label htmlFor="username" className="form-label">
+        <div className="form-inputs-login">
+          <label htmlFor="username" className="form-label-login">
             Username
           </label>
           <input
             id="username"
             type="text"
             name="username"
-            className="form-input"
+            className="form-input-login"
             placeholder="Enter your username"
             value={values.username}
             onChange={handleChange}
@@ -30,32 +30,15 @@ const Form = ({ submitForm }) => {
           {errors.username && <p>{errors.username}</p>}
         </div>
 
-        {/* this is the email box if we decide to use email instead of usernames */}
-
-        {/* <div className="form-inputs">
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              className="form-input"
-              placeholder="Enter your email"
-              value={values.email}
-              onChange={handleChange}
-            />
-            {errors.email && <p>{errors.email}</p>}
-          </div> */}
-        <div className="form-inputs">
-          <label htmlFor="password" className="form-label">
+        <div className="form-inputs-login">
+          <label htmlFor="password" className="form-label-login">
             Password
           </label>
           <input
             id="password"
             type="password"
             name="password"
-            className="form-input"
+            className="form-input-login"
             placeholder="Enter your password"
             value={values.password}
             onChange={handleChange}
@@ -63,10 +46,10 @@ const Form = ({ submitForm }) => {
           {errors.password && <p>{errors.password}</p>}
         </div>
 
-        <button className="form-input-btn" type="submit">
+        <button className="form-input-btn-login" type="submit">
           Log in
         </button>
-        <span className="form-input-login">
+        <span className="form-input-login2">
           
             Don't have an account? Sign up, <Link to='/signup'>here</Link>
           
