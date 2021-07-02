@@ -33,6 +33,12 @@ export default function Navbar() {
       <Link to="/signup">
         <Button>Sign Up</Button>
       </Link>
+      <Link to="/login-screen">
+        <Button>Login screen</Button>
+      </Link>
+      <Link to="/register-screen">
+        <Button>Register screen</Button>
+      </Link>
     </nav>
   );
 }

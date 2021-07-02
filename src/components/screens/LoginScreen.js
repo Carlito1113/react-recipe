@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function LoginScreen({ history }) {
   const [username, setUsername] = useState("");
