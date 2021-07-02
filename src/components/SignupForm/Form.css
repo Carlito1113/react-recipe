@@ -21,11 +21,6 @@
 
 .form-content-left {
   background: #FE5E54;
-  /* background: linear-gradient(
-    90deg,
-    rgb(39, 176, 255) 0%,
-    rgb(0, 232, 236) 100%
-  ); */
   border-radius: 10px 0 0 10px;
   position: relative;
 }
@@ -121,11 +116,6 @@
   margin-top: 10px;
   border-radius: 2px;
   background: #fe5e54;
-  /* background: linear-gradient(
-    90deg,
-    rgb(39, 176, 255) 0%,
-    rgb(0, 232, 236) 100%
-  ); */
   outline: none;
   border: none;
   color: #fff;
@@ -135,15 +125,10 @@
 .form-input-btn:hover {
   cursor: pointer;
   background: #00c9b8;
-  /* background: linear-gradient(
-    90deg,
-    rgb(39, 143, 255) 0%,
-    rgb(12, 99, 250) 100%
-  ); */
   transition: all 0.4s ease-out;
 }
 
-.form-input-login {
+.form-input-signup {
   font-size: 0.8rem;
   margin-top: 10px;
   color: #fff;
@@ -151,7 +136,7 @@
   text-align: center;
 }
 
-.form-input-login a {
+.form-input-signup a {
   text-decoration: none;
   color: #fcd200;
   font-weight: 600;
