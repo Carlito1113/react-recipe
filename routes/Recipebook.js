@@ -15,7 +15,6 @@ router.get("/food", async (req, res) => {
 
 // Save a recipe
 router.post("/", async (req, res) => {
-
     const recipe = new Recipebook({
         title: req.body.title,
         image: req.body.image,
