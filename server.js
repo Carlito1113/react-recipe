@@ -22,6 +22,11 @@ const db = mongoose.connection;
 db.on("error", (err) => console.error(err));
 db.once("open", () => console.log("connected to db"));
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+
+process.on("unhandledRejection", (error, promise) => {
+  console.log(`Logged Error: ${error}`);
+  server.close(() => process.exit(1))
+})
