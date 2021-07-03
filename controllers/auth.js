@@ -10,20 +10,22 @@ exports.register = async (req, res, next) => {
 
   // Check if user already exists
   const userExists = await User.findOne({ username: req.body.username });
-  if (userExists) return res.status(400).send("username already exists");
+  if (userExists) return res.status(400).send("Username already exists");
 
   // Create New User
-  const user = new User.create({
+  const user = await User.create({
     username: req.body.username,
     password: req.body.password,
   });
   try {
     const savedUser = await user.save();
-    res.send({ user: savedUser._id });
+    const token = jwt.sign({ _id: savedUser._id }, process.env.TOKEN_SECRET, { expiresIn: "30min"});
+    res.header("auth-token", token).send(token);
   } catch (err) {
     res.status(400).send(err);
   }
 };
+
 exports.login = async (req, res, next) => {
   // Input Validation
   const { error } = loginValidation(req.body);
@@ -37,7 +39,7 @@ exports.login = async (req, res, next) => {
 
   try {
     // Create and assign token
-    const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
+    const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, { expiresIn: "30min"});
     res.header("auth-token", token).send(token);
   } catch (err) {
     res.status(400).send(err);

@@ -14,7 +14,6 @@ const userSchema = new mongoose.Schema(
       required: [true, "Please add a passaword"],
       min: 6,
       max: 1024,
-      select: false,
     },
   },
   { timestamps: true }
