@@ -9,7 +9,7 @@ app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 // ROUTES
-app.use("/api/recipebook", require("./routes/Recipebook"));
+app.use("/api/recipebook", require("./routes/recipebook"));
 app.use("/api/user", require("./routes/auth"));
 
 // DB

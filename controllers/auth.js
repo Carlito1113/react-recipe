@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { registerValidation, loginValidation } = require("../utils/validation");
 
-exports.register = async (req, res, next) => {
+exports.register = async (req, res) => {
   // Input Validation
   const { error } = registerValidation(req.body);
   if (error) return res.status(400).send(error.details[0].message);
@@ -26,7 +26,7 @@ exports.register = async (req, res, next) => {
   }
 };
 
-exports.login = async (req, res, next) => {
+exports.login = async (req, res) => {
   // Input Validation
   const { error } = loginValidation(req.body);
   if (error) return res.status(400).send(error.details[0].message);

@@ -1,37 +1,11 @@
-const express = require("express")
-const router = express.Router()
-const Recipebook = require("../models/recipe")
+const express = require("express");
+const router = express.Router();
+const { getRecipes, saveRecipe} = require("../controllers/recipebook")
 
 // Getting all recipes
-router.get("/food", async (req, res) => {
-    try {
-        const recipes = await Recipebook.find()
-        res.send(recipes)
-    }
-    catch (err) {
-        res.status(500).json({ message: err.message })
-    }
-})
+router.get("/food", getRecipes);
 
 // Save a recipe
-router.post("/", async (req, res) => {
-    const recipe = new Recipebook({
-        title: req.body.title,
-        image: req.body.image,
-        preparationMinutes: req.body.preparationMinutes,
-        readyInMinutes: req.body.readyInMinutes,
-        servings: req.body.servings,
-        sourceUrl: req.body.sourceUrl,
-        summary: req.body.summary
-    })
+router.post("/", saveRecipe);
 
-    try {
-        const newRecipe = await recipe.save()
-        res.status(201).json(newRecipe)
-    }
-    catch (err) {
-        res.status(400).json({ message: err.message })
-    }
-})
-
-module.exports = router
+module.exports = router;
