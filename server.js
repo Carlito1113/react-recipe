@@ -5,7 +5,9 @@ const cors = require("cors");
 const port = 3001;
 require("dotenv").config();
 
-app.use(cors({ origin: "*" }));
+app.use(
+  cors({ origin: "*" }, { allowedHeaders: ["Content-Type", "Authorization"] })
+);
 app.use(express.json());
 
 // ROUTES
@@ -28,5 +30,5 @@ const server = app.listen(port, () => {
 
 process.on("unhandledRejection", (error, promise) => {
   console.log(`Logged Error: ${error}`);
-  server.close(() => process.exit(1))
-})
+  server.close(() => process.exit(1));
+});

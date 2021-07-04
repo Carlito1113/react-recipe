@@ -4,7 +4,7 @@ const { getRecipes, saveRecipe } = require("../controllers/recipebook");
 const { verify } = require("../middleware/verifyToken");
 
 // Getting all recipes
-router.get("/", verify, getRecipes);
+router.get("/:id", verify, getRecipes);
 
 // Save a recipe
 router.post("/", saveRecipe);

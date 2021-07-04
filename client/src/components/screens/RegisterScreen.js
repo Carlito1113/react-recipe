@@ -18,7 +18,7 @@ export default function RegisterScreen({ history }) {
     e.preventDefault();
 
     const config = {
-      header: {
+      headers: {
         "Content-type": "application/json",
       },
     };

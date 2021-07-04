@@ -4,7 +4,7 @@ const User = require("../models/User");
 // Get all recipes
 exports.getRecipes = async (req, res) => {
   try {
-    const user = await User.findOne({ _id: req.body._id}).populate("recipes");
+    const user = await User.findOne({ _id: req.params.id}).populate("recipes");
     res.send(user.recipes);
   } catch (err) {
     res.status(500).json({ message: err.message });
