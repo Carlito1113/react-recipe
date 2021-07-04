@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function RegisterScreen({ history }) {
   const [username, setUsername] = useState("");
@@ -7,8 +8,14 @@ export default function RegisterScreen({ history }) {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+
+    const config = {
+      header: {
+        "Content-type": "application/json",
+      },
+    };
 
     if (password !== confirmPassword) {
       setPassword("");
@@ -19,12 +26,21 @@ export default function RegisterScreen({ history }) {
       return setError("Passwords do not match");
     }
 
-    console.log({
-      username: username,
-      password: password,
-      confirm: confirmPassword,
-    });
-    history.push("/");
+    try {
+      const { data } = await axios.post(
+        "/api/user/register",
+        { username, password },
+        config
+      );
+
+      localStorage.setItem("auth-token", data.token);
+      history.push("/");
+    } catch (error) {
+      setError(error.response.data);
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+    }
   }
 
   return (
@@ -33,11 +49,11 @@ export default function RegisterScreen({ history }) {
         <h3>Register</h3>
         {error && <span>{error}</span>}
         <div>
-          <label htmlFor="name">Username:</label>
+          <label htmlFor="username">Username:</label>
           <input
             type="text"
             required
-            id="name"
+            id="username"
             placeholder="Enter Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -71,7 +87,7 @@ export default function RegisterScreen({ history }) {
         <button type="submit">Register</button>
 
         <span>
-          Already have an account? <Link to="/login">Login</Link>
+          Already have an account? <Link to="/login-screen">Login</Link>
         </span>
       </form>
     </div>
