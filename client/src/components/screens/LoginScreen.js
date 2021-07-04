@@ -9,7 +9,7 @@ export default function LoginScreen({ history }) {
 
   useEffect(() => {
     if (localStorage.getItem("auth-token")) {
-      history.push("/");
+      history.push("/user");
     }
   }, [history]);
 
@@ -30,7 +30,7 @@ export default function LoginScreen({ history }) {
       );
 
       localStorage.setItem("auth-token", data.token);
-      history.push("/");
+      history.push("/user");
     } catch (error) {
       setError(error.response.data);
       setTimeout(() => {
@@ -55,7 +55,6 @@ export default function LoginScreen({ history }) {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-
         <div>
           <label htmlFor="password">Password:</label>
           <input
@@ -67,9 +66,11 @@ export default function LoginScreen({ history }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-
-        <button type="submit">Login</button>
+        <button type="submit">Login</button> <br />
+        <span>
+          Don't have an account? <Link to="/register-screen">Register</Link>
+        </span>
       </form>
     </div>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -7,6 +7,12 @@ export default function RegisterScreen({ history }) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (localStorage.getItem("auth-token")) {
+      history.push("/user");
+    }
+  }, [history]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -34,7 +40,7 @@ export default function RegisterScreen({ history }) {
       );
 
       localStorage.setItem("auth-token", data.token);
-      history.push("/");
+      history.push("/user");
     } catch (error) {
       setError(error.response.data);
       setTimeout(() => {
@@ -59,7 +65,6 @@ export default function RegisterScreen({ history }) {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-
         <div>
           <label htmlFor="password">Password:</label>
           <input
@@ -71,7 +76,6 @@ export default function RegisterScreen({ history }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-
         <div>
           <label htmlFor="confirmPassword">Confirm Password:</label>
           <input
@@ -83,9 +87,7 @@ export default function RegisterScreen({ history }) {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
-
-        <button type="submit">Register</button>
-
+        <button type="submit">Register</button> <br />
         <span>
           Already have an account? <Link to="/login-screen">Login</Link>
         </span>
