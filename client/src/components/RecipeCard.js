@@ -42,7 +42,7 @@ export default function Recipes({ recipes, isLoggedIn }) {
                   {" "}
                   Link to Recipe{" "}
                 </a>
-                <button onClick={() => saveRecipe(recipe)}>SAVE recipe</button>
+                {isLoggedIn && <button onClick={() => saveRecipe(recipe)}>SAVE recipe</button>}
               </div>
             ) : null}
           </>
