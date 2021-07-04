@@ -28,6 +28,9 @@ export default function Navbar() {
           );
         })}
       </ul>
+      <Link to="/user">
+        <Button>My Recipebook</Button>
+      </Link>
       <Link to="/signup">
         <Button>Sign Up</Button>
       </Link>
