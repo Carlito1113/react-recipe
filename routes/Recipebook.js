@@ -7,6 +7,6 @@ const { verify } = require("../middleware/verifyToken");
 router.get("/:id", verify, getRecipes);
 
 // Save a recipe
-router.post("/", saveRecipe);
+router.post("/", verify, saveRecipe);
 
 module.exports = router;

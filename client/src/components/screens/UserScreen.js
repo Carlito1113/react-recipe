@@ -9,7 +9,7 @@ export default function UserScreen({ history }) {
     if (!localStorage.getItem("auth-token")) {
       history.push("/login-screen");
     }
-    async function fetchPrivateData() {
+    async function getUserRecipes() {
       const config = {
         headers: {
           "Content-Type": "application/json",
@@ -27,7 +27,7 @@ export default function UserScreen({ history }) {
         setError("You are not authorized, please login");
       }
     }
-    fetchPrivateData();
+    getUserRecipes();
   }, [history]);
 
   function logoutHandler() {

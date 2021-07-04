@@ -4,7 +4,7 @@ const User = require("../models/User");
 // Get all recipes
 exports.getRecipes = async (req, res) => {
   try {
-    const user = await User.findOne({ _id: req.params.id}).populate("recipes");
+    const user = await User.findOne({ _id: req.params.id }).populate("recipes");
     res.send(user.recipes);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -13,18 +13,22 @@ exports.getRecipes = async (req, res) => {
 
 // Save a recipe
 exports.saveRecipe = async (req, res) => {
+  const savedRecipe = req.body[0];
+  const userId = req.body[1];
+  
   const recipe = new Recipebook({
-    title: req.body.title,
-    image: req.body.image,
-    preparationMinutes: req.body.preparationMinutes,
-    readyInMinutes: req.body.readyInMinutes,
-    servings: req.body.servings,
-    sourceUrl: req.body.sourceUrl,
-    summary: req.body.summary,
+    title: savedRecipe.title,
+    image: savedRecipe.image,
+    preparationMinutes: savedRecipe.preparationMinutes,
+    readyInMinutes: savedRecipe.readyInMinutes,
+    servings: savedRecipe.servings,
+    sourceUrl: savedRecipe.sourceUrl,
+    summary: savedRecipe.summary,
   });
 
   try {
     const newRecipe = await recipe.save();
+    await User.findOneAndUpdate({ _id: userId }, { $push: { recipes: newRecipe._id } });
     res.status(201).json(newRecipe);
   } catch (err) {
     res.status(400).json({ message: err.message });
