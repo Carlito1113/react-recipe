@@ -71,5 +71,5 @@ export default function LoginScreen({ history }) {
         <button type="submit">Login</button>
       </form>
     </div>
-  );
+  )
 }
