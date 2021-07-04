@@ -30,6 +30,7 @@ export default function LoginScreen({ history }) {
       );
 
       localStorage.setItem("auth-token", data.token);
+      localStorage.setItem("user-id", data.userId);
       history.push("/user");
     } catch (error) {
       setError(error.response.data);

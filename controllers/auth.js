@@ -19,8 +19,10 @@ exports.register = async (req, res) => {
   });
   try {
     const savedUser = await user.save();
-    const token = jwt.sign({ _id: savedUser._id }, process.env.TOKEN_SECRET, { expiresIn: "30min"});
-    res.header("auth-token", token).send(token);
+    const token = jwt.sign({ _id: savedUser._id }, process.env.TOKEN_SECRET, {
+      expiresIn: "30min",
+    });
+    res.header("auth-token", token).send({ userId: savedUser._id, token: token });
   } catch (err) {
     res.status(400).send(err);
   }
@@ -39,8 +41,10 @@ exports.login = async (req, res) => {
 
   try {
     // Create and assign token
-    const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, { expiresIn: "30min"});
-    res.header("auth-token", token).send(token);
+    const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, {
+      expiresIn: "30min",
+    });
+    res.header("auth-token", token).send({ user: user._id, token: token });
   } catch (err) {
     res.status(400).send(err);
   }

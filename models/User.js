@@ -15,6 +15,12 @@ const userSchema = new mongoose.Schema(
       min: 6,
       max: 1024,
     },
+    recipes: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Recipebook",
+      },
+    ],
   },
   { timestamps: true }
 );
