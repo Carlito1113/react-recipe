@@ -46,7 +46,7 @@ exports.deleteRecipe = async (req, res) => {
       { _id: userId },
       { $pull: { recipes: recipeId } }
     );
-    res.status(201).json(deletedRecipe);
+    res.status(201).json(recipeId);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

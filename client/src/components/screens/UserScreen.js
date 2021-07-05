@@ -20,25 +20,46 @@ export default function UserScreen({ history }) {
       try {
         const { data } = await axios.get(`/api/recipebook/${userId}`, config);
         setPrivateData(data);
-      } catch (error) {
+      } catch (err) {
         localStorage.removeItem("auth-token");
-        console.log(error);
+        console.log(err);
         setError("You are not authorized, please login");
       }
     }
     getUserRecipes();
   }, [history]);
 
-  function logoutHandler() {
-    localStorage.removeItem("auth-token");
-    history.push("/login-screen");
+  async function deleteRecipe(recipe) {
+    const payload = {
+      data: {
+        userId: localStorage.getItem("user-id"),
+        recipeId: recipe._id,
+      },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("auth-token")}`,
+      },
+    };
+
+    try {
+      const { data } = await axios.delete(`/api/recipebook/`, payload);
+
+      const recipeArray = privateData;
+      // Find index of deleted recipe
+      let index = recipeArray.findIndex((recipe) => recipe._id === data);
+      // Delete recipe from array
+      recipeArray.splice(index, 1);
+      setPrivateData(recipeArray)
+      console.log(privateData);
+    } catch (err) {
+      console.log(err);
+      setError(err);
+    }
   }
 
-  return (
-    <>
-      {error && <span>{error}</span>}
-      <button onClick={logoutHandler}>Logout</button>
-      {privateData && (
+  function Recipes() {
+    if(privateData) {
+      return (
         <div className="RecipesContainer">
           {privateData.map((recipe, recipeIdx) => {
             return (
@@ -54,11 +75,28 @@ export default function UserScreen({ history }) {
                 <a rel="noreferrer" target="_blank" href={recipe.sourceUrl}>
                   Link to Recipe
                 </a>
+                <button onClick={() => deleteRecipe(recipe)}>delete</button>
               </div>
             );
           })}
         </div>
-      )}
+      )
+    }
+    else {
+      return <h1>Get started by saving your favorite recipes here!</h1>
+    }
+  }
+
+  function logoutHandler() {
+    localStorage.removeItem("auth-token");
+    history.push("/login-screen");
+  }
+
+  return (
+    <>
+      {error && <span>{error}</span>}
+      <button onClick={logoutHandler}>Logout</button>
+      <Recipes />
     </>
   );
 }

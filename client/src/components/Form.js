@@ -16,6 +16,7 @@ export default function Form({ setRecipe }) {
       `https://api.spoonacular.com/recipes/random?tags=${input}&number=10&apiKey=${process.env.REACT_APP_API_KEY_SPOONACULAR}`
     );
     setRecipe(response.data.recipes);
+    console.log(response.data.recipes);
   }
 
   return (
