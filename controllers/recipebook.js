@@ -19,13 +19,12 @@ exports.saveRecipe = async (req, res) => {
   const recipe = new Recipebook({
     title: savedRecipe.title,
     image: savedRecipe.image,
-    preparationMinutes: savedRecipe.preparationMinutes,
     readyInMinutes: savedRecipe.readyInMinutes,
     servings: savedRecipe.servings,
     sourceUrl: savedRecipe.sourceUrl,
     summary: savedRecipe.summary,
   });
-
+  console.log(recipe.readyInMinutes);
   try {
     const newRecipe = await recipe.save();
     await User.findOneAndUpdate({ _id: userId }, { $push: { recipes: newRecipe._id } });

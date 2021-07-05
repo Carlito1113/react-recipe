@@ -20,6 +20,7 @@ export default function UserScreen({ history }) {
       try {
         const { data } = await axios.get(`/api/recipebook/${userId}`, config);
         setPrivateData(data);
+        console.log(data);
       } catch (error) {
         localStorage.removeItem("auth-token");
         console.log(error);

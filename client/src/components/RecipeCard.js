@@ -24,6 +24,8 @@ export default function Recipes({ recipes, isLoggedIn }) {
       request,
       config
     );
+    console.log(newRecipe);
+    console.log(response);
   }
 
   return (

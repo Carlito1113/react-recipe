@@ -9,7 +9,7 @@ const recipebookSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    readinInMinutes: {
+    readyInMinutes: {
         type: Number,
         required: false
     },
