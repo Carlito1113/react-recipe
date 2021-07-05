@@ -1,14 +1,14 @@
-import React from "react";
-import "./App.css";
-import RecipesComponent from "./components/RecipesComponent";
-import Navbar from "./components/Navbar/Navbar";
-import SignupForm from "./components/SignupForm/Form";
-import LoginForm from "./components/LoginForm/Form";
-import LoginScreen from "./components/screens/LoginScreen";
-import RegisterScreen from "./components/screens/RegisterScreen";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import PrivateRoute from "./components/routing/PrivateRoute";
-import UserScreen from "./components/screens/UserScreen";
+import React from 'react';
+import './App.css';
+import RecipesComponent from './components/RecipesComponent';
+import Navbar from './components/Navbar/Navbar';
+import SignupForm from './components/SignupForm/Form';
+import LoginForm from './components/LoginForm/Form';
+import LoginScreen from './components/screens/LoginScreen';
+import RegisterScreen from './components/screens/RegisterScreen';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import PrivateRoute from './components/routing/PrivateRoute';
+import UserScreen from './components/screens/UserScreen';
 
 function App() {
   return (

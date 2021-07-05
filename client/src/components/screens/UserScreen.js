@@ -1,29 +1,29 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 export default function UserScreen({ history }) {
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [privateData, setPrivateData] = useState();
 
   useEffect(() => {
-    if (!localStorage.getItem("auth-token")) {
-      history.push("/login-screen");
+    if (!localStorage.getItem('auth-token')) {
+      history.push('/login-screen');
     }
     async function getUserRecipes() {
       const config = {
         headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("auth-token")}`,
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('auth-token')}`,
         },
       };
-      const userId = localStorage.getItem("user-id");
+      const userId = localStorage.getItem('user-id');
       try {
         const { data } = await axios.get(`/api/recipebook/${userId}`, config);
         setPrivateData(data);
       } catch (err) {
-        localStorage.removeItem("auth-token");
+        localStorage.removeItem('auth-token');
         console.log(err);
-        setError("You are not authorized, please login");
+        setError('You are not authorized, please login');
       }
     }
     getUserRecipes();
@@ -32,12 +32,12 @@ export default function UserScreen({ history }) {
   async function deleteRecipe(recipe) {
     const payload = {
       data: {
-        userId: localStorage.getItem("user-id"),
+        userId: localStorage.getItem('user-id'),
         recipeId: recipe._id,
       },
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("auth-token")}`,
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('auth-token')}`,
       },
     };
 
@@ -87,8 +87,8 @@ export default function UserScreen({ history }) {
   }
 
   function logoutHandler() {
-    localStorage.removeItem("auth-token");
-    history.push("/login-screen");
+    localStorage.removeItem('auth-token');
+    history.push('/login-screen');
   }
 
   return (

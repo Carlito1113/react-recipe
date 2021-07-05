@@ -1,6 +1,6 @@
-import React from "react";
-import "./Recipe.css";
-import axios from "axios";
+import React from 'react';
+import './Recipe.css';
+import axios from 'axios';
 
 export default function Recipes({ recipes, isLoggedIn }) {
   async function saveRecipe(recipe) {
@@ -12,14 +12,14 @@ export default function Recipes({ recipes, isLoggedIn }) {
       sourceUrl: recipe.sourceUrl,
       summary: recipe.summary,
     };
-    const request = [newRecipe, localStorage.getItem("user-id")];
+    const request = [newRecipe, localStorage.getItem('user-id')];
     const config = {
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("auth-token")}`,
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('auth-token')}`,
       },
     };
-    await axios.post("http://localhost:3001/api/recipebook", request, config);
+    await axios.post('http://localhost:3001/api/recipebook', request, config);
   }
 
   return (
@@ -38,8 +38,8 @@ export default function Recipes({ recipes, isLoggedIn }) {
                 <p>Ready in: {recipe.readyInMinutes} minutes</p>
                 <p>Serves: {recipe.servings}</p>
                 <a rel="noreferrer" target="_blank" href={recipe.sourceUrl}>
-                  {" "}
-                  Link to Recipe{" "}
+                  {' '}
+                  Link to Recipe{' '}
                 </a>
                 {isLoggedIn && (
                   <button onClick={() => saveRecipe(recipe)}>

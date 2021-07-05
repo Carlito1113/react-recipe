@@ -4,13 +4,13 @@ import Form from './Form';
 
 export default function RecipesComponent({ history }) {
   const [recipes, setRecipe] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("auth-token")) {
-      setIsLoggedIn(true)
+    if (localStorage.getItem('auth-token')) {
+      setIsLoggedIn(true);
     }
-  }, [history])
+  }, [history]);
 
   console.log(isLoggedIn);
 

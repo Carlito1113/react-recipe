@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function RegisterScreen({ history }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    if (localStorage.getItem("auth-token")) {
-      history.push("/user");
+    if (localStorage.getItem('auth-token')) {
+      history.push('/user');
     }
   }, [history]);
 
@@ -19,33 +19,33 @@ export default function RegisterScreen({ history }) {
 
     const config = {
       headers: {
-        "Content-type": "application/json",
+        'Content-type': 'application/json',
       },
     };
 
     if (password !== confirmPassword) {
-      setPassword("");
-      setConfirmPassword("");
+      setPassword('');
+      setConfirmPassword('');
       setTimeout(() => {
-        setError("");
+        setError('');
       }, 5000);
-      return setError("Passwords do not match");
+      return setError('Passwords do not match');
     }
 
     try {
       const { data } = await axios.post(
-        "/api/user/register",
+        '/api/user/register',
         { username, password },
         config
       );
 
-      localStorage.setItem("auth-token", data.token);
-      localStorage.setItem("user-id", data.userId);
-      history.push("/user");
+      localStorage.setItem('auth-token', data.token);
+      localStorage.setItem('user-id', data.userId);
+      history.push('/user');
     } catch (error) {
       setError(error.response.data);
       setTimeout(() => {
-        setError("");
+        setError('');
       }, 5000);
     }
   }
