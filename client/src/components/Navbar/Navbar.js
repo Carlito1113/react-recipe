@@ -20,8 +20,8 @@ export default function Navbar() {
       <ul className={clicked ? "nav-menu active" : "nav-menu"}>
         {MenuItems.map((item, index) => {
           return (
-            <Link className="routerLink" to={item.url}>
-              <li key={index} className={item.cName} href={item.url}>
+            <Link key={index} className="routerLink" to={item.url}>
+              <li  className={item.cName} href={item.url}>
                 {item.title}
               </li>
             </Link>

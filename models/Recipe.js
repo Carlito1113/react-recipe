@@ -9,10 +9,6 @@ const recipebookSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    preparationMinutes: {
-        type: Number,
-        required: false
-    },
     readinInMinutes: {
         type: Number,
         required: false

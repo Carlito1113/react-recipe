@@ -19,7 +19,6 @@ export default function UserScreen({ history }) {
       const userId = localStorage.getItem("user-id");
       try {
         const { data } = await axios.get(`/api/recipebook/${userId}`, config);
-        console.log(data);
         setPrivateData(data);
       } catch (error) {
         localStorage.removeItem("auth-token");
@@ -39,30 +38,27 @@ export default function UserScreen({ history }) {
     <>
       {error && <span>{error}</span>}
       <button onClick={logoutHandler}>Logout</button>
-      {privateData ? (
+      {privateData && (
         <div className="RecipesContainer">
           {privateData.map((recipe, recipeIdx) => {
             return (
-              <>
-                <div key={recipeIdx} className="RecipeCard">
-                  <img
-                    className="CardImage"
-                    src={recipe.image}
-                    alt="recipe stuff"
-                  />
-                  <h3>{recipe.title}</h3>
-                  <p>Ready in: {recipe.readyInMinutes} minutes</p>
-                  <p>Serves: {recipe.servings}</p>
-                  <a rel="noreferrer" target="_blank" href={recipe.sourceUrl}>
-                    {" "}
-                    Link to Recipe{" "}
-                  </a>
-                </div>
-              </>
+              <div key={recipeIdx} className="RecipeCard">
+                <img
+                  className="CardImage"
+                  src={recipe.image}
+                  alt="recipe stuff"
+                />
+                <h3>{recipe.title}</h3>
+                <p>Ready in: {recipe.readyInMinutes} minutes</p>
+                <p>Serves: {recipe.servings}</p>
+                <a rel="noreferrer" target="_blank" href={recipe.sourceUrl}>
+                  Link to Recipe
+                </a>
+              </div>
             );
           })}
         </div>
-      ) : null}
+      )}
     </>
   );
 }

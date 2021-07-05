@@ -7,7 +7,6 @@ export default function Recipes({ recipes, isLoggedIn }) {
     const newRecipe = {
       title: recipe.title,
       image: recipe.image,
-      preparationMinutes: recipe.preparationMinutes,
       readyInMinutes: recipe.readyInMinutes,
       servings: recipe.servings,
       sourceUrl: recipe.sourceUrl,
@@ -20,20 +19,24 @@ export default function Recipes({ recipes, isLoggedIn }) {
         Authorization: `Bearer ${localStorage.getItem("auth-token")}`,
       },
     };
-    await axios.post("http://localhost:3001/api/recipebook", request, config);
+    const response = await axios.post(
+      "http://localhost:3001/api/recipebook",
+      request,
+      config
+    );
   }
 
   return (
     <div className="RecipesContainer">
       {recipes.map((recipe, recipeIdx) => {
         return (
-          <>
+          <div key={recipeIdx}>
             {recipeIdx <= 5 ? (
-              <div key={recipeIdx} className="RecipeCard">
+              <div className="RecipeCard">
                 <img
                   className="CardImage"
                   src={recipe.image}
-                  alt="recipe stuff"
+                  alt={recipe.title}
                 />
                 <h3>{recipe.title}</h3>
                 <p>Ready in: {recipe.readyInMinutes} minutes</p>
@@ -42,10 +45,14 @@ export default function Recipes({ recipes, isLoggedIn }) {
                   {" "}
                   Link to Recipe{" "}
                 </a>
-                {isLoggedIn && <button onClick={() => saveRecipe(recipe)}>SAVE recipe</button>}
+                {isLoggedIn && (
+                  <button onClick={() => saveRecipe(recipe)}>
+                    SAVE recipe
+                  </button>
+                )}
               </div>
             ) : null}
-          </>
+          </div>
         );
       })}
     </div>
