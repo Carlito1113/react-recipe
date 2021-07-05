@@ -43,13 +43,13 @@ export default function UserScreen({ history }) {
 
     try {
       const { data } = await axios.delete(`/api/recipebook/`, payload);
-
       const recipeArray = privateData;
       // Find index of deleted recipe
       let index = recipeArray.findIndex((recipe) => recipe._id === data);
-      // Delete recipe from array
-      recipeArray.splice(index, 1);
-      setPrivateData(recipeArray)
+      setPrivateData(
+        privateData.filter((recipe, stateIndex) => stateIndex !== index)
+      );
+
       console.log(privateData);
     } catch (err) {
       console.log(err);
@@ -58,7 +58,7 @@ export default function UserScreen({ history }) {
   }
 
   function Recipes() {
-    if(privateData) {
+    if (privateData) {
       return (
         <div className="RecipesContainer">
           {privateData.map((recipe, recipeIdx) => {
@@ -80,10 +80,9 @@ export default function UserScreen({ history }) {
             );
           })}
         </div>
-      )
-    }
-    else {
-      return <h1>Get started by saving your favorite recipes here!</h1>
+      );
+    } else {
+      return <h1>Get started by saving your favorite recipes here!</h1>;
     }
   }
 
