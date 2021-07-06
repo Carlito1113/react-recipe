@@ -21,6 +21,7 @@ mongoose.connect(process.env.MONGODB_URI || process.env.DATABASE_URL, {
 });
 const db = mongoose.connection;
 
+
 db.on('error', (err) => console.error(err));
 db.once('open', () => console.log('connected to db'));
 
@@ -32,3 +33,4 @@ process.on('unhandledRejection', (error, promise) => {
   console.log(`Logged Error: ${error}`);
   server.close(() => process.exit(1));
 });
+

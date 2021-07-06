@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PrivateRoute from './components/routing/PrivateRoute';
 import UserScreen from './components/screens/UserScreen';
 
+
 function App() {
   return (
     <Router>

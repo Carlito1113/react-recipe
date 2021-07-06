@@ -3,6 +3,7 @@ import './Recipe.css';
 import axios from 'axios';
 
 export default function Recipes({ recipes, isLoggedIn }) {
+
   async function saveRecipe(recipe) {
     const newRecipe = {
       title: recipe.title,
@@ -33,6 +34,7 @@ export default function Recipes({ recipes, isLoggedIn }) {
                   className="CardImage"
                   src={recipe.image}
                   alt={recipe.title}
+
                 />
                 <h3>{recipe.title}</h3>
                 <p>Ready in: {recipe.readyInMinutes} minutes</p>

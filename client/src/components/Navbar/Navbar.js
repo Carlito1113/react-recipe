@@ -9,7 +9,9 @@ export default function Navbar() {
 
   return (
     <nav className="NavbarItems">
+
       <Link to="/" className="routerLink">
+
         <h1 className="navbar-logo">
           Recipe Book <i className="fas fa-drumstick-bite"></i>
         </h1>
