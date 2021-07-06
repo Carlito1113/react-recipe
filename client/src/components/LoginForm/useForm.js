@@ -34,3 +34,4 @@ const useForm = (callback, validate) => {
 }
 
 export default useForm
+

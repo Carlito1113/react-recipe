@@ -1,9 +1,10 @@
-import axios from "axios";
-import React, { useState } from "react";
-import "./Form.css";
+import axios from 'axios';
+import React, { useState } from 'react';
+import './Form.css';
 
 export default function Form({ setRecipe }) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
+
 
   function handleInputChange(event) {
     setInput(event.target.value);
@@ -16,6 +17,8 @@ export default function Form({ setRecipe }) {
       `https://api.spoonacular.com/recipes/random?tags=${input}&number=10&apiKey=${process.env.REACT_APP_API_KEY_SPOONACULAR}`
     );
     setRecipe(response.data.recipes);
+    console.log(response.data.recipes);
+
   }
 
   return (

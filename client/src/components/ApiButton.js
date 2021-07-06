@@ -8,8 +8,8 @@ export default function ApiButton() {
       const recipe = await axios.get(
         `https://api.spoonacular.com/recipes/random?tags=italian&number=10&apiKey=${process.env.REACT_APP_API_KEY_SPOONACULAR}`
       );
-      console.log(recipe.data)
-    } catch (error) {
+      console.log(recipe.data);
+error) {
       console.error(error);
     }
   }

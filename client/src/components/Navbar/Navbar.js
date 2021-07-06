@@ -9,7 +9,9 @@ export default function Navbar() {
 
   return (
     <nav className="NavbarItems">
-      <Link to='/' className='routerLink'>
+
+      <Link to="/" className="routerLink">
+
         <h1 className="navbar-logo">
           Recipe Book <i className="fas fa-drumstick-bite"></i>
         </h1>
@@ -20,16 +22,17 @@ export default function Navbar() {
       <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
         {MenuItems.map((item, index) => {
           return (
-            <Link className='routerLink' to={item.url}>
-              <li key={index}>
-                <a className={item.cName} href={item.url}>
-                  {item.title}
-                </a>
+            <Link key={index} className="routerLink" to={item.url}>
+              <li className={item.cName} href={item.url}>
+                {item.title}
               </li>
             </Link>
           );
         })}
       </ul>
+      <Link to="/user">
+        <Button>My Recipebook</Button>
+      </Link>
       <Link to="/signup">
         <Button>Sign Up</Button>
       </Link>

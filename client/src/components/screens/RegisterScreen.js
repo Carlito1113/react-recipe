@@ -1,30 +1,53 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function RegisterScreen({ history }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
 
-  function handleSubmit(e) {
+  useEffect(() => {
+    if (localStorage.getItem('auth-token')) {
+      history.push('/user');
+    }
+  }, [history]);
+
+  async function handleSubmit(e) {
     e.preventDefault();
 
+    const config = {
+      headers: {
+        'Content-type': 'application/json',
+      },
+    };
+
     if (password !== confirmPassword) {
-      setPassword("");
-      setConfirmPassword("");
+      setPassword('');
+      setConfirmPassword('');
       setTimeout(() => {
-        setError("");
+        setError('');
       }, 5000);
-      return setError("Passwords do not match");
+      return setError('Passwords do not match');
     }
 
-    console.log({
-      username: username,
-      password: password,
-      confirm: confirmPassword,
-    });
-    history.push("/");
+    try {
+      const { data } = await axios.post(
+        '/api/user/register',
+        { username, password },
+        config
+      );
+
+      localStorage.setItem('auth-token', data.token);
+      localStorage.setItem('user-id', data.userId);
+      history.push('/user');
+    } catch (error) {
+      setError(error.response.data);
+      setTimeout(() => {
+        setError('');
+      }, 5000);
+    }
   }
 
   return (
@@ -33,17 +56,16 @@ export default function RegisterScreen({ history }) {
         <h3>Register</h3>
         {error && <span>{error}</span>}
         <div>
-          <label htmlFor="name">Username:</label>
+          <label htmlFor="username">Username:</label>
           <input
             type="text"
             required
-            id="name"
+            id="username"
             placeholder="Enter Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-
         <div>
           <label htmlFor="password">Password:</label>
           <input
@@ -55,7 +77,6 @@ export default function RegisterScreen({ history }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-
         <div>
           <label htmlFor="confirmPassword">Confirm Password:</label>
           <input
@@ -67,11 +88,9 @@ export default function RegisterScreen({ history }) {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
-
-        <button type="submit">Register</button>
-
+        <button type="submit">Register</button> <br />
         <span>
-          Already have an account? <Link to="/login">Login</Link>
+          Already have an account? <Link to="/login-screen">Login</Link>
         </span>
       </form>
     </div>

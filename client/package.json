@@ -1,8 +1,10 @@
 {
   "name": "react-recipe",
   "version": "0.1.0",
+  "proxy": "http://localhost:3001",
   "private": true,
   "dependencies": {
+    "@hapi/bourne": "^2.0.0",
     "@hapi/joi": "^17.1.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
