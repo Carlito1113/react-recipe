@@ -7,7 +7,7 @@ export default function UserScreen({ history }) {
 
   useEffect(() => {
     if (!localStorage.getItem('auth-token')) {
-      history.push('/login-screen');
+      history.push('/login');
     }
     async function getUserRecipes() {
       const config = {
