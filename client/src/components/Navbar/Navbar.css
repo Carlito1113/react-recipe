@@ -1,5 +1,5 @@
 .NavbarItems {
-  background: #FE5E54;
+  background: #fe5e54;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -40,7 +40,7 @@
 }
 
 .nav-links:hover {
-  background-color: #00C9B8;
+  background-color: #00c9b8;
   border-radius: 4px;
   transition: all 0.2s ease-out;
 }
@@ -54,7 +54,7 @@
 }
 
 .menu-icon {
-  display: none
+  display: none;
 }
 
 @media screen and (max-width: 960px) {
@@ -91,7 +91,7 @@
   }
 
   .nav-links:hover {
-    background-color: #00C9B8;
+    background-color: #00c9b8;
     border-radius: 0;
   }
 
@@ -99,7 +99,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    transform: translate(25%, 50%)
+    transform: translate(25%, 50%);
   }
 
   .menu-icon {
@@ -124,7 +124,7 @@
     margin: 2rem auto;
     border-radius: 4px;
     width: 80%;
-    background: #FCD200;
+    background: #fcd200;
     text-decoration: none;
     color: #fff;
     font-size: 1.5rem;
@@ -132,7 +132,7 @@
 
   .nav-links-mobile:hover {
     background: #fff;
-    color: #00C9D8;
+    color: #00c9d8;
     transition: 250ms;
   }
 

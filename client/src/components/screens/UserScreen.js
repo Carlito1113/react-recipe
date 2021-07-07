@@ -45,7 +45,7 @@ export default function UserScreen({ history }) {
       const { data } = await axios.delete(`/api/recipebook/`, payload);
       const recipeArray = privateData;
       // Find index of deleted recipe
-      let index = recipeArray.findIndex((recipe) => recipe._id === data);
+      let index = recipeArray.findIndex(recipe => recipe._id === data);
       setPrivateData(
         privateData.filter((recipe, stateIndex) => stateIndex !== index)
       );
@@ -88,7 +88,7 @@ export default function UserScreen({ history }) {
 
   function logoutHandler() {
     localStorage.removeItem('auth-token');
-    history.push('/login-screen');
+    history.push('/login');
   }
 
   return (

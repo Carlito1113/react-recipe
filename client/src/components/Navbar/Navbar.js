@@ -9,9 +9,7 @@ export default function Navbar() {
 
   return (
     <nav className="NavbarItems">
-
       <Link to="/" className="routerLink">
-
         <h1 className="navbar-logo">
           Recipe Book <i className="fas fa-drumstick-bite"></i>
         </h1>
@@ -30,18 +28,12 @@ export default function Navbar() {
           );
         })}
       </ul>
-      <Link to="/user">
-        <Button>My Recipebook</Button>
-      </Link>
       <Link to="/signup">
         <Button>Sign Up</Button>
       </Link>
-      <Link to="/login-screen">
+      {/* <Link to="/login-screen">
         <Button>Login screen</Button>
-      </Link>
-      <Link to="/register-screen">
-        <Button>Register screen</Button>
-      </Link>
+      </Link> */}
     </nav>
   );
 }

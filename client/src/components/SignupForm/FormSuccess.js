@@ -6,7 +6,7 @@ const FormSuccess = () => {
     <div className="form-content-right">
       <div className="form-success">We have received your request!</div>
       {/* success image that relates to the image on the left of the form */}
-      <img src="#" alt="success" className="form-img-2" />
+      {/* <img src="#" alt="success" className="form-img-2" /> */}
     </div>
   );
 };
