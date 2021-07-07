@@ -1,12 +1,17 @@
 .form-container {
   margin: 100px auto;
-  width: 1000px;
+  width: 500px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 10px;
   height: 600px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  background: linear-gradient(
+    90deg,
+    rgb(40, 40, 40) 0%,
+    rgb(17, 17, 17) 100%
+  ); /* this is only here if the component is going to be a simple sign up form without the svg icon left side*/
 }
 
 .close-btn {
@@ -19,13 +24,14 @@
   cursor: pointer;
 }
 
-.form-content-left {
+/*add this if the svg icon is added back in*/
+/* .form-content-left {
   background: #fe5e54;
   border-radius: 10px 0 0 10px;
   position: relative;
-}
+} */
 
-.form-img {
+/* .form-img {
   width: 80%;
   height: 80%;
   position: absolute;
@@ -41,7 +47,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
+} */
 
 .form-success {
   text-align: center;
@@ -50,11 +56,11 @@
   color: #fff;
 }
 
-.form-content-right {
+/* .form-content-right {
   border-radius: 0 10px 10px 0;
   position: relative;
   background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(17, 17, 17) 100%);
-}
+} */
 
 .form {
   position: absolute;
@@ -70,8 +76,8 @@
 }
 
 .form h1 {
-  font-size: 1rem;
-  text-align: start;
+  font-size: 2rem;
+  text-align: center;
   width: 80%;
   margin-bottom: 1rem;
   color: #fff;
