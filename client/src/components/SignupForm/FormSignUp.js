@@ -14,8 +14,7 @@ const FormSignUp = ({ submitForm }) => {
     <div className="form-content-right">
       <form className="form" onSubmit={handleSubmit}>
         <h1>
-          Get started with us today! Create your account by filling out the form
-          below.
+        Start saving recipes today!
         </h1>
         <div className="form-inputs">
           <label htmlFor="username" className="form-label">
