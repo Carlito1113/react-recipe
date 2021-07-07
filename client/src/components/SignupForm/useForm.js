@@ -1,38 +1,71 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 const useForm = (callback, validate) => {
+  let history = useHistory();
   const [values, setValues] = useState({
-    username: '', 
+    username: '',
     email: '',
     password: '',
-    confirmPassword: ''
-  })
-  const [errors, setErrors] = useState({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
+    confirmPassword: '',
+  });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = e => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setValues({
       ...values,
-      [name]: value
-    })
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    setErrors(validate(values))
-    setIsSubmitting(true)
-  }
+      [name]: value,
+    });
+  };
 
   useEffect(() => {
-    if(Object.keys(errors).length === 0 && isSubmitting) {
+    if (localStorage.getItem('auth-token')) {
+      history.push('/user');
+    }
+  }, [history]);
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    setErrors(validate(values));
+    const config = {
+      headers: {
+        'Content-type': 'application/json',
+      },
+    };
+
+    try {
+      const username = values.username;
+      const password = values.password;
+      const { data } = await axios.post(
+        'http://localhost:3001/api/user/register',
+        { username, password },
+        config
+      );
+
+      localStorage.setItem('auth-token', data.token);
+      localStorage.setItem('user-id', data.userId);
+      history.push('/user');
+    } catch (error) {
+      console.log(error);
+      // setErrors(error.response.data);
+      // setTimeout(() => {
+      //   setErrors('');
+      // }, 5000);
+    }
+
+    // setIsSubmitting(true)
+  };
+
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && isSubmitting) {
       callback();
     }
-  }, [errors])
+  }, [errors]);
 
-  return { handleChange, values, handleSubmit, errors }
-}
+  return { handleChange, values, handleSubmit, errors };
+};
 
-export default useForm
+export default useForm;

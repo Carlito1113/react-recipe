@@ -13,10 +13,10 @@ const Form = () => {
   return (
     <>
       <div className="form-container">
-        <span className="close-btn">x</span>
+        {/* <span className="close-btn">x</span> */}
         <div className="form-content-left">
           {/* add in food/cooking image that looks cool maybe a plate icon that has food or a drumstick on the left and then when the form submits its an empty plate or drumstick with a bite taken out. svg icons work well here*/}
-          <img src="img" alt="#" className="form-img" />
+          {/* <img src="img" alt="#" className="form-img" /> */}
         </div>
         {!isSubmitted ? (
           <FormSignup submitForm={submitForm} />

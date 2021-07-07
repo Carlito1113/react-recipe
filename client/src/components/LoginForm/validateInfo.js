@@ -1,5 +1,4 @@
 export default function validateInfo(values) {
-
   let errors = {};
 
   if (!values.username.trim()) {
@@ -13,4 +12,3 @@ export default function validateInfo(values) {
   }
   return errors;
 }
-

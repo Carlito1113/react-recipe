@@ -1,14 +1,14 @@
-import { Redirect, Route } from "react-router-dom";
+import { Redirect, Route } from 'react-router-dom';
 
 export default function PrivateRoute({ component: Component, ...rest }) {
   return (
     <Route
       {...rest}
-      render={(props) =>
-        localStorage.getItem("auth-token") ? (
+      render={props =>
+        localStorage.getItem('auth-token') ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/login-screen" />
+          <Redirect to="/login" />
         )
       }
     />
