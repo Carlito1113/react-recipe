@@ -44,9 +44,9 @@
 }
 
 .RecipeCard:hover {
-  background-color: #FE5E54;
+  background-color: #fe5e54;
   color: white;
   cursor: pointer;
   transform: scale(1.03);
-  transition: all .3s ease
+  transition: all 0.3s ease;
 }

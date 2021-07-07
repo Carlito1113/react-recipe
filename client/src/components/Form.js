@@ -5,7 +5,6 @@ import './Form.css';
 export default function Form({ setRecipe }) {
   const [input, setInput] = useState('');
 
-
   function handleInputChange(event) {
     setInput(event.target.value);
   }
@@ -18,7 +17,6 @@ export default function Form({ setRecipe }) {
     );
     setRecipe(response.data.recipes);
     console.log(response.data.recipes);
-
   }
 
   return (
