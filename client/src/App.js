@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import RecipesComponent from './components/RecipesComponent';
 import Navbar from './components/Navbar/Navbar';
@@ -9,14 +9,28 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import UserScreen from './components/screens/UserScreen';
 
 function App() {
+  const [loggedin, setLoggedin] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem('auth-token')) {
+      setLoggedin(true);
+    } else {
+      setLoggedin(false);
+    }
+
+    console.log(loggedin);
+  }, []);
+
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        <Navbar loggedin={loggedin} setLoggedin={setLoggedin} />
         <Switch>
           <PrivateRoute exact path="/user" component={UserScreen} />
           <Route path="/" exact component={RecipesComponent} />
-          <Route path="/login" component={LoginForm} />
+          <Route path="/login">
+            <LoginForm loggedin={loggedin} setLoggedin={setLoggedin} />
+          </Route>
           <Route path="/signup" component={SignupForm} />
         </Switch>
       </div>
