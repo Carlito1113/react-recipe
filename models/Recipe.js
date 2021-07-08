@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const recipebookSchema = new mongoose.Schema({
+  recipeApiId: {
+    type: Number,
+    required: true,
+  },
   title: {
     type: String,
     required: false,

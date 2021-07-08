@@ -18,6 +18,7 @@ export default function Navbar() {
         <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
       </div>
       <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
+        
         {MenuItems.map((item, index) => {
           return (
             <Link key={index} className="routerLink" to={item.url}>

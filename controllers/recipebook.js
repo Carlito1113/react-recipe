@@ -17,6 +17,7 @@ exports.saveRecipe = async (req, res) => {
   const userId = req.body[1];
 
   const recipe = new Recipebook({
+    recipeId: savedRecipe.recipeId,
     title: savedRecipe.title,
     image: savedRecipe.image,
     readyInMinutes: savedRecipe.readyInMinutes,
@@ -42,10 +43,11 @@ exports.deleteRecipe = async (req, res) => {
   const userId = req.body.userId;
 
   try {
-    const deletedRecipe = await User.findOneAndUpdate(
+    await User.findOneAndUpdate(
       { _id: userId },
       { $pull: { recipes: recipeId } }
     );
+
     res.status(201).json(recipeId);
   } catch (err) {
     res.status(400).json({ message: err.message });

@@ -23,7 +23,8 @@ export default function UserScreen({ history }) {
       } catch (err) {
         localStorage.removeItem('auth-token');
         console.log(err);
-        setError('You are not authorized, please login');
+        history.push("/login")
+
       }
     }
     getUserRecipes();
