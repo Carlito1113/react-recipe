@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-const useForm = (callback, validate) => {
+const useForm = (callback, validate, loginCheck) => {
   let history = useHistory();
   const [values, setValues] = useState({
     username: '',
@@ -27,7 +27,7 @@ const useForm = (callback, validate) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-
+    setErrors(validate(values));
     const config = {
       headers: {
         'Content-type': 'application/json',
@@ -49,6 +49,7 @@ const useForm = (callback, validate) => {
       localStorage.setItem('auth-token', data.token);
       localStorage.setItem('user-id', data.userId);
       history.push('/user');
+      loginCheck()
     } catch (error) {
       console.log(error);
     }
