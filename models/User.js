@@ -17,34 +17,8 @@ const userSchema = new mongoose.Schema(
     },
     recipes: [
       {
-        recipeApiId: {
-          type: Number,
-          required: true,
-        },
-        title: {
-          type: String,
-          required: false,
-        },
-        image: {
-          type: String,
-          required: false,
-        },
-        readyInMinutes: {
-          type: Number,
-          required: false,
-        },
-        servings: {
-          type: Number,
-          required: false,
-        },
-        sourceUrl: {
-          type: String,
-          required: false,
-        },
-        summary: {
-          type: String,
-          required: false,
-        },
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Recipebook',
       },
     ],
   },
