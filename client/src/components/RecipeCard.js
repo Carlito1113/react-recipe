@@ -27,7 +27,7 @@ export default function Recipes({ recipes, isLoggedIn }) {
       {recipes.map((recipe, recipeIdx) => {
         return (
           <div key={recipeIdx}>
-            {recipeIdx <= 5 ? (
+            {recipeIdx <= 7 ? (
               <div className="RecipeCard">
                 <img
                   className="CardImage"
@@ -37,15 +37,14 @@ export default function Recipes({ recipes, isLoggedIn }) {
                 <h3>{recipe.title}</h3>
                 <p>Ready in: {recipe.readyInMinutes} minutes</p>
                 <p>Serves: {recipe.servings}</p>
-                <a rel="noreferrer" target="_blank" href={recipe.sourceUrl}>
-                  {' '}
-                  Link to Recipe{' '}
-                </a>
-                {isLoggedIn && (
-                  <button onClick={() => saveRecipe(recipe)}>
-                    SAVE recipe
-                  </button>
-                )}
+                <div className='cardButtonContainer'>
+                  <a className='flexboxLink' rel="noreferrer" target="_blank" href={recipe.sourceUrl}>
+                    Link
+                  </a>
+                  {isLoggedIn && (
+                    <button className='btn flexBtn' onClick={() => saveRecipe(recipe)}>Save</button>
+                  )}
+                </div>
               </div>
             ) : null}
           </div>
