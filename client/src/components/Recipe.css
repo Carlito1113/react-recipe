@@ -62,6 +62,11 @@
 width: 6rem;
 }
 
+.flexboxLink:hover {
+  color: #fe5e54;
+  transition: all 0.3s ease;
+}
+
 .flexBtn {
 width: 6rem;
 margin: 1rem;
