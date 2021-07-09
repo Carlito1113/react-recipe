@@ -73,10 +73,12 @@ export default function UserScreen({ history }) {
                 <h3>{recipe.title}</h3>
                 <p>Ready in: {recipe.readyInMinutes} minutes</p>
                 <p>Serves: {recipe.servings}</p>
-                <a rel="noreferrer" target="_blank" href={recipe.sourceUrl}>
-                  Link to Recipe
-                </a>
-                <button onClick={() => deleteRecipe(recipe)}>delete</button>
+                <div className="cardButtonContainer">
+                  <a className='flexboxLink' rel="noreferrer" target="_blank" href={recipe.sourceUrl}>
+                    Link
+                  </a>
+                  <button className='btn flexBtn' onClick={() => deleteRecipe(recipe)}>delete</button>
+                </div>
               </div>
             );
           })}
@@ -86,16 +88,9 @@ export default function UserScreen({ history }) {
       return <h1>Get started by saving your favorite recipes here!</h1>;
     }
   }
-
-  function logoutHandler() {
-    localStorage.removeItem('auth-token');
-    history.push('/login');
-  }
-
   return (
     <>
       {error && <span>{error}</span>}
-      <button onClick={logoutHandler}>Logout</button>
       <Recipes />
     </>
   );
