@@ -16,7 +16,7 @@ app.use('/api/recipebook', require('./routes/recipebook'));
 app.use('/api/user', require('./routes/auth'));
 
 // DB
-mongoose.connect(process.env.MONGODB_URI || process.env.DATABASE_URL, {
+mongoose.connect(functions.config().dburi.key || process.env.DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
