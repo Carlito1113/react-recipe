@@ -7,12 +7,14 @@ import LoginForm from './components/LoginForm/Form';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PrivateRoute from './components/routing/PrivateRoute';
 import UserScreen from './components/screens/UserScreen';
+import LandingPage from './components/LandingPage';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Navbar />
+        <LandingPage />
         <Switch>
           <PrivateRoute exact path="/user" component={UserScreen} />
           <Route path="/" exact component={RecipesComponent} />

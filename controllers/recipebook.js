@@ -42,7 +42,6 @@ exports.deleteRecipe = async (req, res) => {
   const userId = req.body.userId;
 
   try {
-    console.log(recipeId);
     await User.findOneAndUpdate(
       { _id: userId },
       { $pull: { recipes: recipeId } }
