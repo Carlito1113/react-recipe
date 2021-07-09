@@ -7,7 +7,7 @@ import LoginForm from './components/LoginForm/Form';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PrivateRoute from './components/routing/PrivateRoute';
 import UserScreen from './components/screens/UserScreen';
-import LandingPage from './components/LandingPage';
+
 
 function App() {
   const [loggedin, setLoggedin] = useState(false);
@@ -20,13 +20,12 @@ function App() {
     }
 
     console.log(loggedin);
-  }, []);
+  }, [loggedin]);
 
   return (
     <Router>
       <div className="App">
         <Navbar loggedin={loggedin} setLoggedin={setLoggedin} />
-        <LandingPage />
         <Switch>
           <PrivateRoute exact path="/user" component={UserScreen} />
           <Route path="/" exact component={RecipesComponent} />

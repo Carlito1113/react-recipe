@@ -1,5 +1,5 @@
 import React from 'react';
-import './Recipe.css';
+import './RecipeCard.css';
 import axios from 'axios';
 
 export default function Recipes({ recipes, isLoggedIn }) {

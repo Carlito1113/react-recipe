@@ -20,7 +20,7 @@ export default function Form({ setRecipe }) {
   }
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form id="form" onSubmit={handleFormSubmit}>
       <div className="searchLabel">
         <label>
           <h2>Search a cuisine and receive your random recipes!</h2>

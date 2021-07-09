@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import RecipeCard from './RecipeCard';
 import Form from './Form';
+import LandingPage from './LandingPage';
 
 export default function RecipesComponent({ history }) {
   const [recipes, setRecipe] = useState([]);
@@ -16,6 +17,7 @@ export default function RecipesComponent({ history }) {
 
   return (
     <div>
+      <LandingPage />
       <Form setRecipe={setRecipe} />
       <RecipeCard isLoggedIn={isLoggedIn} recipes={recipes} />
     </div>
