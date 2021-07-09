@@ -28,12 +28,12 @@ export default function Form({ setRecipe }) {
       </div>
       <input
         onChange={handleInputChange}
-        type="text"
+        type="search"
         name="search"
         placeholder="Ingredient"
-        className="searchInput"
+        // className="searchInput"
       />
-      <button className="searchBtn">Search</button>
+      {/* <button className="searchBtn">Search</button> */}
     </form>
   );
 }
