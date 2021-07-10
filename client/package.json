@@ -1,7 +1,7 @@
 {
   "name": "react-recipe",
   "version": "0.1.0",
-  "proxy": "http://localhost:3001",
+  "proxy": "https://us-central1-recipebook-2096c.cloudfunctions.net/app",
   "private": true,
   "dependencies": {
     "@hapi/bourne": "^2.0.0",
