@@ -7,7 +7,9 @@ import LoginForm from './components/LoginForm/Form';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PrivateRoute from './components/routing/PrivateRoute';
 import UserScreen from './components/UserScreen';
+import axios from 'axios';
 
+axios.defaults.baseURL = "https://us-central1-recipebook-2096c.cloudfunctions.net/app"
 
 function App() {
   const [loggedin, setLoggedin] = useState(false);

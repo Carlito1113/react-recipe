@@ -17,7 +17,7 @@ const useForm = (callback, validate, loginCheck) => {
     }
   }, [history]);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({
       ...values,
@@ -25,7 +25,7 @@ const useForm = (callback, validate, loginCheck) => {
     });
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors(validate(values));
     const config = {
@@ -45,11 +45,10 @@ const useForm = (callback, validate, loginCheck) => {
         },
         config
       );
-
       localStorage.setItem('auth-token', data.token);
       localStorage.setItem('user-id', data.userId);
       history.push('/user');
-      loginCheck()
+      loginCheck();
     } catch (error) {
       console.log(error);
     }

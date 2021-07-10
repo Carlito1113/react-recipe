@@ -24,7 +24,6 @@ export default function UserScreen({ history }) {
         localStorage.removeItem('auth-token');
         console.log(err);
         history.push("/login")
-
       }
     }
     getUserRecipes();
@@ -50,8 +49,6 @@ export default function UserScreen({ history }) {
       setPrivateData(
         privateData.filter((recipe, stateIndex) => stateIndex !== index)
       );
-
-      console.log(privateData);
     } catch (err) {
       console.log(err);
       setError(err);
