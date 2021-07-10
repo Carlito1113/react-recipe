@@ -40,7 +40,7 @@ const useForm = (callback, validate) => {
       const username = values.username;
       const password = values.password;
       const { data } = await axios.post(
-        'http://localhost:3001/api/user/register',
+        '/api/user/register',
         { username, password },
         config
       );

@@ -56,7 +56,7 @@ export default function UserScreen({ history }) {
   }
 
   function Recipes() {
-    if (privateData) {
+    if (privateData.length > 0) {
       return (
         <div className="RecipesContainer">
           {privateData.map((recipe, recipeIdx) => {
@@ -82,7 +82,7 @@ export default function UserScreen({ history }) {
         </div>
       );
     } else {
-      return <h1>Get started by saving your favorite recipes here!</h1>;
+      return <h1>No saved recipes yet!</h1>;
     }
   }
   return (

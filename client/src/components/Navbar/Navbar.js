@@ -23,30 +23,26 @@ export default function Navbar({ history, loggedin, setLoggedin }) {
         <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
       </div>
       {!loggedin ? (
-        <ul className="nav-menu">
+        <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
           <Link className="routerLink" to="login">
-            <li href="/login" className="nav-links">
-              Login
-            </li>
+            <li className="nav-links">Login</li>
+          </Link>
+          <Link className="routerLink" to="/signup">
+            <li className="nav-links">Sign Up</li>
           </Link>
         </ul>
       ) : (
-        <ul className="nav-menu">
+        <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
           <Link className="routerLink" to="user">
-            <li href="/user" className="nav-links">
-              My Recipes
-            </li>
+            <li className="nav-links">My Recipes</li>
           </Link>
           <Link className="routerLink" to="login">
-            <li onClick={logoutHandler} href="/login" className="nav-links">
+            <li onClick={logoutHandler} className="nav-links">
               Logout
             </li>
           </Link>
         </ul>
       )}
-      <Link to="/signup">
-        <Button>Sign Up</Button>
-      </Link>
     </nav>
   );
 }
