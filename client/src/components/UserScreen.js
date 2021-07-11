@@ -20,6 +20,7 @@ export default function UserScreen({ history }) {
       try {
         const { data } = await axios.get(`/api/recipebook/${userId}`, config);
         setPrivateData(data);
+        // console.log(data);
       } catch (err) {
         localStorage.removeItem('auth-token');
         console.log(err);
@@ -56,7 +57,7 @@ export default function UserScreen({ history }) {
   }
 
   function Recipes() {
-    if (privateData.length > 0) {
+    if (privateData && privateData.length > 0) {
       return (
         <div className="RecipesContainer">
           {privateData.map((recipe, recipeIdx) => {

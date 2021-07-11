@@ -9,7 +9,8 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import UserScreen from './components/UserScreen';
 import axios from 'axios';
 
-axios.defaults.baseURL = "https://us-central1-recipebook-2096c.cloudfunctions.net/app"
+axios.defaults.baseURL =
+  'https://us-central1-recipebook-2096c.cloudfunctions.net/app';
 
 function App() {
   const [loggedin, setLoggedin] = useState(false);
@@ -32,9 +33,11 @@ function App() {
           <PrivateRoute exact path="/user" component={UserScreen} />
           <Route path="/" exact component={RecipesComponent} />
           <Route path="/login">
-            <LoginForm loggedin={loggedin} setLoggedin={setLoggedin} />
+            <LoginForm setLoggedin={setLoggedin} />
           </Route>
-          <Route path="/signup" component={SignupForm} />
+          <Route path="/signup" component={SignupForm}>
+            <SignupForm setLoggedin={setLoggedin} />
+          </Route>
         </Switch>
       </div>
     </Router>

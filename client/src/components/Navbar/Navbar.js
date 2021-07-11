@@ -8,6 +8,7 @@ export default function Navbar({ history, loggedin, setLoggedin }) {
 
   function logoutHandler() {
     localStorage.removeItem('auth-token');
+    localStorage.removeItem('user-id');
     setLoggedin(false);
   }
 

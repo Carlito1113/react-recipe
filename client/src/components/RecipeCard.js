@@ -19,7 +19,7 @@ export default function Recipes({ recipes, isLoggedIn }) {
         Authorization: `Bearer ${localStorage.getItem('auth-token')}`,
       },
     };
-    await axios.post('http://localhost:3001/api/recipebook', request, config);
+    await axios.post('/api/recipebook', request, config);
   }
 
   return (
