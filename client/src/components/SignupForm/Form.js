@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import FormSignup from './FormSignUp';
 import './Form.css';
 
-const Form = () => {
+const Form = ({ setLoggedin }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   function submitForm() {
@@ -12,7 +12,7 @@ const Form = () => {
   return (
     <>
       <div className="form-container">
-          <FormSignup submitForm={submitForm} />
+        <FormSignup submitForm={submitForm} setLoggedin={setLoggedin} />
       </div>
     </>
   );

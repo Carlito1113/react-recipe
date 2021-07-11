@@ -1,5 +1,5 @@
 import React from 'react';
-import './Recipe.css';
+import './RecipeCard.css';
 import axios from 'axios';
 
 export default function Recipes({ recipes, isLoggedIn }) {
@@ -19,7 +19,7 @@ export default function Recipes({ recipes, isLoggedIn }) {
         Authorization: `Bearer ${localStorage.getItem('auth-token')}`,
       },
     };
-    await axios.post('http://localhost:3001/api/recipebook', request, config);
+    await axios.post('/api/recipebook', request, config);
   }
 
   return (

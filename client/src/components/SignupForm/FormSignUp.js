@@ -4,10 +4,13 @@ import validate from './validateInfo';
 import './Form.css';
 import { Link } from 'react-router-dom';
 
-const FormSignUp = ({ submitForm }) => {
+const FormSignUp = ({ submitForm, setLoggedin }) => {
   const { handleChange, values, handleSubmit, errors } = useForm(
     submitForm,
-    validate
+    validate,
+    () => {
+      setLoggedin(true)
+    }
   );
 
   return (

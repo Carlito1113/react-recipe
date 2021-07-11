@@ -6,7 +6,11 @@ import SignupForm from './components/SignupForm/Form';
 import LoginForm from './components/LoginForm/Form';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PrivateRoute from './components/routing/PrivateRoute';
-import UserScreen from './components/screens/UserScreen';
+import UserScreen from './components/UserScreen';
+import axios from 'axios';
+
+axios.defaults.baseURL =
+  'https://us-central1-recipebook-2096c.cloudfunctions.net/app';
 
 function App() {
   const [loggedin, setLoggedin] = useState(false);
@@ -19,7 +23,7 @@ function App() {
     }
 
     console.log(loggedin);
-  }, []);
+  }, [loggedin]);
 
   return (
     <Router>
@@ -29,9 +33,11 @@ function App() {
           <PrivateRoute exact path="/user" component={UserScreen} />
           <Route path="/" exact component={RecipesComponent} />
           <Route path="/login">
-            <LoginForm loggedin={loggedin} setLoggedin={setLoggedin} />
+            <LoginForm setLoggedin={setLoggedin} />
           </Route>
-          <Route path="/signup" component={SignupForm} />
+          <Route path="/signup" component={SignupForm}>
+            <SignupForm setLoggedin={setLoggedin} />
+          </Route>
         </Switch>
       </div>
     </Router>

@@ -20,10 +20,11 @@ export default function UserScreen({ history }) {
       try {
         const { data } = await axios.get(`/api/recipebook/${userId}`, config);
         setPrivateData(data);
+        // console.log(data);
       } catch (err) {
         localStorage.removeItem('auth-token');
         console.log(err);
-        setError('You are not authorized, please login');
+        history.push("/login")
       }
     }
     getUserRecipes();
@@ -49,8 +50,6 @@ export default function UserScreen({ history }) {
       setPrivateData(
         privateData.filter((recipe, stateIndex) => stateIndex !== index)
       );
-
-      console.log(privateData);
     } catch (err) {
       console.log(err);
       setError(err);
@@ -58,7 +57,7 @@ export default function UserScreen({ history }) {
   }
 
   function Recipes() {
-    if (privateData) {
+    if (privateData && privateData.length > 0) {
       return (
         <div className="RecipesContainer">
           {privateData.map((recipe, recipeIdx) => {
@@ -84,7 +83,7 @@ export default function UserScreen({ history }) {
         </div>
       );
     } else {
-      return <h1>Get started by saving your favorite recipes here!</h1>;
+      return <h1>No saved recipes yet!</h1>;
     }
   }
   return (
