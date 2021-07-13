@@ -1,5 +1,6 @@
 .NavbarItems {
-  background: #fe5e54;
+  /* background: #fe5e54; */
+  background: crimson;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -40,7 +41,7 @@
 }
 
 .nav-links:hover {
-  background-color: #00c9b8;
+  background-color: #2ec4b6;
   border-radius: 4px;
   transition: all 0.2s ease-out;
 }
@@ -91,7 +92,7 @@
   }
 
   .nav-links:hover {
-    background-color: #00c9b8;
+    background-color: #3aecdb;
     border-radius: 0;
   }
 
@@ -124,7 +125,7 @@
     margin: 2rem auto;
     border-radius: 4px;
     width: 80%;
-    background: #fcd200;
+    background: #ffcd03;
     text-decoration: none;
     color: #fff;
     font-size: 1.5rem;
@@ -132,7 +133,7 @@
 
   .nav-links-mobile:hover {
     background: #fff;
-    color: #00c9d8;
+    color: #2ec4b6;
     transition: 250ms;
   }
 
