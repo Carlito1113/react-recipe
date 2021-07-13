@@ -19,28 +19,11 @@ form {
 }
 
 .form-btn {
-	background-color: cadetblue;
+	background-color: crimson;
 	margin: 1rem;
 	width: 10%;
 	/* text-align: center; */
 }
-
-/* .form-btn:hover {
-	color: cornflowerblue;
-}
-
-::placeholder {
-	color: white;
-	opacity: 1;
-}
-
-:-ms-input-placeholder {
-	color:white;
-}
-
-::-ms-input-placeholder {
-	color: white;
-} */
 
 .searchBtn {
   margin: 1rem;
@@ -78,7 +61,7 @@ input::-webkit-search-cancel-button {
 input[type=search] {
 	background: #ededed url(../assets/search.png) no-repeat 9px center;
   background-size: 20px;
-	border: solid 1px #fe5e54;
+	border: solid 1px crimson;
 	padding: 9px 10px 9px 32px;
 	width: 20%;
 	
@@ -90,49 +73,3 @@ input[type=search] {
 	-moz-transition: all .5s;
 	transition: all .5s;
 }
-
-/* input[type=search]:focus {
-	width: 130px;
-	background-color: #fff;
-	border-color: #fe5e54;
-	
-	-webkit-box-shadow: 0 0 5px rgba(254, 94, 84, 1);
-	-moz-box-shadow: 0 0 5px rgba(254, 94, 84, 1);
-	box-shadow: 0 0 5px rgba(254, 94, 84, 1);
-}
-
-
-input:-moz-placeholder {
-	color: #999;
-}
-
-input::-webkit-input-placeholder {
-	color: #999;
-}
-
-input[type=search] {
-	width: 15px;
-	padding-left: 10px;
-	color: transparent;
-	cursor: pointer;
-}
-
-input[type=search]:hover {
-	background-color: #fff;
-}
-
-input[type=search]:focus {
-	width: 130px;
-	padding-left: 32px;
-	color: #000;
-	background-color: #fff;
-	cursor: auto;
-}
-
-input:-moz-placeholder {
-	color: transparent;
-}
-
-input::-webkit-input-placeholder {
-	color: transparent;
-} */
