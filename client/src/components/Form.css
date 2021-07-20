@@ -10,7 +10,7 @@ form {
 
 .form__buttons {
 	display: flex;
-	flex: wrap;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	flex-basis: 100%;
@@ -21,7 +21,7 @@ form {
 .form-btn {
 	background-color: crimson;
 	margin: 1rem;
-	width: 10%;
+	min-width: 10%;
 	/* text-align: center; */
 }
 

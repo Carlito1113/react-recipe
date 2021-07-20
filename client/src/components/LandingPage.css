@@ -3,9 +3,8 @@
 .landing-page {
   position: relative;
   min-height: 100vh;
+  max-height: fit-content;
   width: 100%;
-  display: flex;
-  flex-direction: column;
   background: url('../assets/pexelbluekitchen.jpeg') no-repeat;
   background-size: cover;
   background-position: center;
@@ -34,7 +33,7 @@
   font-weight: 500;
   line-height: 30px;
   color: white;
-  text-shadow: 0.1px 0.1px 50px lightblue;
+  text-shadow: 0.1px 0.1px 25px black;
   /* text-shadow: white 0px 0px 10px; */
   /* text-shadow:
         0.05em 0 white,
@@ -69,20 +68,20 @@
   background-color: #d3d9d0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   #get-started-btn {
     font-size: 1.8rem;
   }
   .landing-page-description :first-child {
-    font-size: 45px;
+    font-size: 40px;
     line-height: 35px;
   }
   .landing-page-description {
-    margin: 60px 50px;
+    margin: 0px 50px;
   }
 
   .landing-page-description :last-child {
-    font-size: 20px;
-    line-height: 20px;
+    font-size: 18px;
+    line-height: 18px;
   }
 }
