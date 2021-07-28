@@ -1,17 +1,59 @@
-.NavbarItems {
-  /* background: #fe5e54; */
-  background: crimson;
+.navbar {
+  background: #2b898b;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-}
-.navbar-logo {
-  color: #fff;
-  justify-self: start;
-  margin-left: 20px;
-  cursor: pointer;
+
+  &__logo {
+    color: #fff;
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+
+  &__menu {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    width: 70vw;
+    justify-content: end;
+    margin-right: 2rem;
+
+    &--icon {
+      display: none;
+    }
+  }
+
+  &__user {
+    border-radius: 50%;
+    color: crimson;
+    background-color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    width: 3%;
+    padding: 9px;
+    border: none;
+  }
+
+  &__links {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+
+    &--mobile{
+      display: none;
+    }
+
+    &:hover {
+      background-color: #7f9eb8;
+      border-radius: 4px;
+      transition: all 0.2s ease-out;
+    }
+  }
 }
 
 .routerLink {
@@ -23,47 +65,16 @@
   font-size: 1.6rem;
 }
 
-.nav-menu {
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  grid-gap: 10px;
-  list-style: none;
-  text-align: center;
-  width: 70vw;
-  justify-content: end;
-  margin-right: 2rem;
-}
-
-.nav-links {
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-}
-
-.nav-links:hover {
-  background-color: #2ec4b6;
-  border-radius: 4px;
-  transition: all 0.2s ease-out;
-}
-
 .fa-bars {
   color: #fff;
 }
 
-.nav-links-mobile {
-  display: none;
-}
-
-.menu-icon {
-  display: none;
-}
-
 @media screen and (max-width: 960px) {
-  .NavbarItems {
+  .navbar {
     position: relative;
   }
 
-  .nav-menu {
+  .navbar__menu {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -76,34 +87,34 @@
     transition: all 0.5s ease;
   }
 
-  .nav-menu.active {
-    background: #f08b84;
+  .navbar__menu.active {
+    background: crimson;
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
   }
 
-  .nav-links {
+  .navbar__links {
     text-align: center;
     padding: 2rem;
     width: 100%;
     display: table;
   }
 
-  .nav-links:hover {
+  .navbar__links:hover {
     background-color: #3aecdb;
     border-radius: 0;
   }
 
-  .navbar-logo {
+  .navbar__logo {
     position: absolute;
     top: 0;
     left: 0;
     transform: translate(25%, 50%);
   }
 
-  .menu-icon {
+  .navbar__menu--icon {
     display: block;
     position: absolute;
     top: 0;
@@ -118,7 +129,7 @@
     font-size: 2rem;
   }
 
-  .nav-links-mobile {
+  .navbar__links--mobile {
     display: block;
     text-align: center;
     padding: 1.5rem;
@@ -131,13 +142,9 @@
     font-size: 1.5rem;
   }
 
-  .nav-links-mobile:hover {
+  .navbar__links--mobile:hover {
     background: #fff;
     color: #2ec4b6;
     transition: 250ms;
   }
-
-  /* Button {
-    display: none;
-  } */
 }

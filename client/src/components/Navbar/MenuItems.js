@@ -2,23 +2,23 @@ export const MenuItems = [
   {
     title: 'Login',
     url: 'login',
-    cName: 'nav-links',
+    cName: 'navbar__links',
     isLogged: false
   },
   {
     title: 'Logout',
     url: 'login',
-    cName: 'nav-links',
+    cName: 'navbar__links',
     islogged: true
   },
   {
     title: 'My recipes',
     url: 'user',
-    cName: 'nav-links',
+    cName: 'navbar__links',
   },
   {
     title: 'Sign up',
     url: 'signup',
-    cName: 'nav-links-mobile',
+    cName: 'navbar__links--mobile',
   },
 ];
