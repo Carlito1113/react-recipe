@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from '../Button';
-import './Navbar.css';
+import './Navbar.scss';
 import { Link } from 'react-router-dom';
 
 export default function Navbar({ history, loggedin, setLoggedin }) {
@@ -13,36 +12,39 @@ export default function Navbar({ history, loggedin, setLoggedin }) {
   }
 
   return (
-    <nav className="NavbarItems">
+    <nav className="navbar">
       <Link to="/" className="routerLink">
-        <h1 className="navbar-logo">
-          Recipe Book <i className="fas fa-drumstick-bite"></i>
+        <h1 className="navbar__logo">
+           <i class="fas fa-bookmark"></i> Recipe Book
         </h1>
       </Link>
 
-      <div className="menu-icon" onClick={() => setClicked(!clicked)}>
+      <div className="navbar__menu--icon" onClick={() => setClicked(!clicked)}>
         <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
       </div>
       {!loggedin ? (
-        <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
+        <ul className={clicked ? 'navbar__menu active' : 'navbar__menu'}>
           <Link className="routerLink" to="login">
-            <li className="nav-links">Login</li>
+            <li className="navbar__links">Login</li>
           </Link>
           <Link className="routerLink" to="/signup">
-            <li className="nav-links">Sign Up</li>
+            <li className="navbar__links">Sign Up</li>
           </Link>
         </ul>
       ) : (
-        <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
-          <Link className="routerLink" to="user">
-            <li className="nav-links">My Recipes</li>
-          </Link>
-          <Link className="routerLink" to="login">
-            <li onClick={logoutHandler} className="nav-links">
-              Logout
-            </li>
-          </Link>
-        </ul>
+        <>
+          <ul className={clicked ? 'navbar__menu active' : 'navbar__menu'}>
+            <Link className="routerLink" to="user">
+              <li className="navbar__links">My Recipes</li>
+            </Link>
+            <Link className="routerLink" to="login">
+              <li onClick={logoutHandler} className="navbar__links">
+                Logout
+              </li>
+            </Link>
+          </ul>
+          <button className='navbar__user'>C</button>
+        </>
       )}
     </nav>
   );

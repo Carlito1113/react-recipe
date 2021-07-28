@@ -48,7 +48,7 @@
 }
 
 .RecipeCard:hover {
-  background-color: #fe5e54;
+  background-color: crimson;
   color: white;
   transform: scale(1.03);
   transition: all 0.3s ease;
@@ -65,7 +65,7 @@ width: 6rem;
 }
 
 .flexboxLink:hover {
-  color: #fe5e54;
+  color: crimson;
   transition: all 0.3s ease;
 }
 
