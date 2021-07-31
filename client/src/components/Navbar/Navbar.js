@@ -15,7 +15,7 @@ export default function Navbar({ history, loggedin, setLoggedin }) {
     <nav className="navbar">
       <Link to="/" className="routerLink">
         <h1 className="navbar__logo">
-           <i class="fas fa-bookmark"></i> Recipe Book
+           <i className="fas fa-bookmark"></i> Recipe Book
         </h1>
       </Link>
 

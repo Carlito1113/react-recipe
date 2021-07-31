@@ -1,11 +1,11 @@
 import React from 'react';
-import './LandingPage.css';
+import './LandingPage.scss';
 import { Link } from 'react-scroll';
 
 const LandingPage = () => {
   return (
     <div className="landing-page">
-      <div className="landing-page-description">
+      <div className="landing-page__description">
         <p>
           Don't know what to cook for dinner?
         </p>

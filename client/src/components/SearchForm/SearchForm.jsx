@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import './Form.css';
-import './Button.css';
+import './SearchForm.scss';
+import '../Button.scss';
 
 export default function Form({ setRecipe }) {
   const [input, setInput] = useState('');
@@ -25,53 +25,53 @@ export default function Form({ setRecipe }) {
 
   return (
     <div id="searchContainer">
-      <form id="form" onSubmit={handleFormSubmit}>
-        <div className="searchLabel">
+      <form id="search-form" onSubmit={handleFormSubmit}>
+        <div className="search-form__label">
           <label>
             <h2>Click for a random recipe list!</h2>
             <h4>Or Search if you're feeling adventurous!</h4>
           </label>
         </div>
-        <div className="form__buttons">
+        <div className="search-form__buttons">
           <button
             onClick={handleClick}
             data-food="chicken"
-            className="btn btn-large form-btn"
+            className="button button__large search-form__button"
           >
             Chicken
           </button>
           <button
             onClick={handleClick}
             data-food="beef"
-            className="btn btn-large form-btn"
+            className="button button__large search-form__button"
           >
             Beef
           </button>
           <button
             onClick={handleClick}
             data-food="pork"
-            className="btn btn-large form-btn"
+            className="button button__large search-form__button"
           >
             Pork
           </button>
           <button
             onClick={handleClick}
             data-food="fish"
-            className="btn btn-large form-btn"
+            className="button button__large search-form__button"
           >
             Fish
           </button>
           <button
             onClick={handleClick}
             data-food="soup"
-            className="btn btn-large form-btn"
+            className="button button__large search-form__button"
           >
             Soup
           </button>
           <button
             onClick={handleClick}
             data-food="vegan"
-            className="btn btn-large form-btn"
+            className="button button__large search-form__button"
           >
             vegan
           </button>
@@ -81,7 +81,7 @@ export default function Form({ setRecipe }) {
           type="search"
           name="search"
           placeholder="Ingredient"
-          className="searchInput"
+          className="search-form__input"
         />
       </form>
     </div>

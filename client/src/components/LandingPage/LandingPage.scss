@@ -6,34 +6,34 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  background:linear-gradient(to right bottom, #1c5c8648, hsla(204, 32%, 51%, 0.288)), url('../assets/pexelbluekitchen.jpeg') no-repeat;
+  background:linear-gradient(to right bottom, #1c5c8648, hsla(204, 32%, 51%, 0.288)), url('../../assets/pexelbluekitchen.jpeg') no-repeat;
   background-size: cover;
   background-position: center;
-}
 
-.landing-page-description {
-  position: absolute;
-  top: 5%;
-  max-width: 650px;
-  margin: 60px 100px;
-}
+  &__description {
+    position: absolute;
+    top: 5%;
+    max-width: 650px;
+    margin: 60px 100px;    
 
-.landing-page-description :first-child {
-  color: #F78E28;
-  font-weight: 900;
-  font-size: 75px;
-  text-transform: uppercase;
-  line-height: 60px;
-  margin-bottom: 30px;
-  text-shadow: 0.1px 0.1px 200px black;
-}
+    & :first-child {
+      color: #F78E28;
+      font-weight: 900;
+      font-size: 75px;
+      text-transform: uppercase;
+      line-height: 60px;
+      margin-bottom: 30px;
+      text-shadow: 0.1px 0.1px 200px black;
+    }
 
-.landing-page-description :last-child {
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 30px;
-  color: white;
-  text-shadow: 0.1px 0.1px 50px lightblue;
+    & :last-child {
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 30px;
+      color: white;
+      text-shadow: 0.1px 0.1px 50px lightblue;
+    }
+  }
 }
 
 #get-started-btn {
@@ -59,15 +59,15 @@
   #get-started-btn {
     font-size: 1.8rem;
   }
-  .landing-page-description :first-child {
+  .landing-page__description :first-child {
     font-size: 45px;
     line-height: 35px;
   }
-  .landing-page-description {
+  .landing-page__description {
     margin: 60px 50px;
   }
 
-  .landing-page-description :last-child {
+  .landing-page__description :last-child {
     font-size: 20px;
     line-height: 20px;
   }

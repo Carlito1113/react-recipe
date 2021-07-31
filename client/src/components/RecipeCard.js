@@ -1,5 +1,5 @@
 import React from 'react';
-import './RecipeCard.css';
+import './RecipeCard.scss';
 import axios from 'axios';
 
 export default function Recipes({ recipes, isLoggedIn }) {
@@ -23,14 +23,14 @@ export default function Recipes({ recipes, isLoggedIn }) {
   }
 
   return (
-    <div className="RecipesContainer">
+    <div className="Recipes-Container">
       {recipes.map((recipe, recipeIdx) => {
         return (
           <div key={recipeIdx}>
             {recipeIdx <= 7 ? (
-              <div className="RecipeCard">
+              <div className="Recipes-Container__Card">
                 <img
-                  className="CardImage"
+                  className="Recipes-Container__Card--Image"
                   src={recipe.image}
                   alt={recipe.title}
                 />
@@ -42,7 +42,7 @@ export default function Recipes({ recipes, isLoggedIn }) {
                     Link
                   </a>
                   {isLoggedIn && (
-                    <button className='btn flexBtn' onClick={() => saveRecipe(recipe)}>Save</button>
+                    <button className='flexBtn' onClick={() => saveRecipe(recipe)}>Save</button>
                   )}
                 </div>
               </div>
