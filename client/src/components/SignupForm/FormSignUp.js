@@ -1,7 +1,7 @@
 import React from 'react';
 import useForm from './useForm';
 import validate from './validateInfo';
-import './Form.css';
+import './Form.scss';
 import { Link } from 'react-router-dom';
 
 const FormSignUp = ({ submitForm, setLoggedin }) => {
@@ -14,20 +14,19 @@ const FormSignUp = ({ submitForm, setLoggedin }) => {
   );
 
   return (
-    <div className="form-content-right">
       <form className="form" onSubmit={handleSubmit}>
         <h1>
         Start saving recipes today!
         </h1>
-        <div className="form-inputs">
-          <label htmlFor="username" className="form-label">
+        <div className="form__inputs">
+          <label htmlFor="username" className="form__label">
             Username
           </label>
           <input
             id="username"
             type="text"
             name="username"
-            className="form-input"
+            className="form__input"
             placeholder="Enter your username"
             value={values.username}
             onChange={handleChange}
@@ -49,30 +48,30 @@ const FormSignUp = ({ submitForm, setLoggedin }) => {
           />
           {errors.email && <p>{errors.email}</p>}
         </div> */}
-        <div className="form-inputs">
-          <label htmlFor="password" className="form-label">
+        <div className="form__inputs">
+          <label htmlFor="password" className="form__label">
             Password
           </label>
           <input
             id="password"
             type="password"
             name="password"
-            className="form-input"
+            className="form__input"
             placeholder="Enter your password"
             value={values.password}
             onChange={handleChange}
           />
           {errors.password && <p>{errors.password}</p>}
         </div>
-        <div className="form-inputs">
-          <label htmlFor="confirmPassword" className="form-label">
+        <div className="form__inputs">
+          <label htmlFor="confirmPassword" className="form__label">
             Confirm Password
           </label>
           <input
             id="confirmPassword"
             type="password"
             name="confirmPassword"
-            className="form-input"
+            className="form__input"
             placeholder="Confirm your password"
             value={values.confirmPassword}
             onChange={handleChange}
@@ -80,14 +79,13 @@ const FormSignUp = ({ submitForm, setLoggedin }) => {
           {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
         </div>
 
-        <button className="form-input-btn" type="submit">
+        <button className="form__btn" type="submit">
           Sign up
         </button>
-        <span className="form-input-signup">
+        <span className="form__span">
           Already have an account? Login <Link to="/login"> here</Link>
         </span>
       </form>
-    </div>
   );
 };
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import useForm from './useForm';
 import validate from './validateInfo';
-import './LoginForm.css';
+import './LoginForm.scss';
+import '../SignupForm/Form.scss';
 import { Link } from 'react-router-dom';
 
 const Form = ({ submitForm, setLoggedin }) => {
@@ -14,18 +15,18 @@ const Form = ({ submitForm, setLoggedin }) => {
   );
 
   return (
-    <div className="form-container-login">
-      <form className="form-login" onSubmit={handleSubmit}>
+    <div className="form-container">
+      <form className="form" onSubmit={handleSubmit}>
         <h1>Welcome Back!</h1>
-        <div className="form-inputs-login">
-          <label htmlFor="username" className="form-label-login">
+        <div className="form__inputs">
+          <label htmlFor="username" className="form__label">
             Username
           </label>
           <input
             id="username"
             type="text"
             name="username"
-            className="form-input-login"
+            className="form__input"
             placeholder="Enter your username"
             value={values.username}
             onChange={handleChange}
@@ -33,15 +34,15 @@ const Form = ({ submitForm, setLoggedin }) => {
           {errors.username && <p>{errors.username}</p>}
         </div>
 
-        <div className="form-inputs-login">
-          <label htmlFor="password" className="form-label-login">
+        <div className="form__inputs">
+          <label htmlFor="password" className="form__label">
             Password
           </label>
           <input
             id="password"
             type="password"
             name="password"
-            className="form-input-login"
+            className="form__input"
             placeholder="Enter your password"
             value={values.password}
             onChange={handleChange}
@@ -49,10 +50,10 @@ const Form = ({ submitForm, setLoggedin }) => {
           {errors.password && <p>{errors.password}</p>}
         </div>
 
-        <button className="form-input-btn-login" type="submit">
+        <button className="form__btn" type="submit">
           Log in
         </button>
-        <span className="form-input-login2">
+        <span className="form__span">
           Don't have an account? Sign up, <Link to="/signup">here</Link>
         </span>
       </form>

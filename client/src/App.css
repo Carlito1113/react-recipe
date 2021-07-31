@@ -7,6 +7,11 @@
   font-family: 'PT Sans', sans-serif;
 }
 
+html {
+  /* use this after fully converted to scss, this will change 1rem to = 10px */
+  /* font-size: 62.5%; */
+}
+
 body {
   background: #e2e0e5;
 }

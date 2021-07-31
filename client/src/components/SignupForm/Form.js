@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FormSignup from './FormSignUp';
-import './Form.css';
+import './Form.scss';
 
 const Form = ({ setLoggedin }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
